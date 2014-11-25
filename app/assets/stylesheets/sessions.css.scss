@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .jumbotron {
 	margin-top: 20%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 }
 .row {
 	display: block;
@@ -12,4 +15,13 @@
 
 h1, p {
 	text-align: center;
+}
+
+ul.errors {
+	display: inline-block;
+}
+
+li.errors {
+	text-align: left;
+	color: red;
 }

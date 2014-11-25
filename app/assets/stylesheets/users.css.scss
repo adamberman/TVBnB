@@ -1,3 +1,27 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.jumbotron {
+	margin-top: 20%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.row {
+	display: block;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+h1, p {
+	text-align: center;
+}
+
+ul.errors {
+	display: inline-block;
+}
+
+li.errors {
+	text-align: left;
+	color: red;
+}
