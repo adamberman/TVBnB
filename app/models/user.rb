@@ -1,7 +1,22 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string(255)      not null
+#  password_digest :string(255)      not null
+#  session_token   :string(255)      not null
+#  gravatar_url    :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class User < ActiveRecord::Base
 	validates :username, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, uniqueness: true
+
+  has_many :listings, dependent: :destroy
 
   attr_reader :password
   after_initialize :ensure_session_token

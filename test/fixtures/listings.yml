@@ -1,14 +1,15 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: listings
 #
-#  id              :integer          not null, primary key
-#  username        :string(255)      not null
-#  password_digest :string(255)      not null
-#  session_token   :string(255)      not null
-#  gravatar_url    :string(255)
-#  created_at      :datetime
-#  updated_at      :datetime
+#  id          :integer          not null, primary key
+#  price       :integer          not null
+#  address     :string(255)      not null
+#  name        :string(255)      not null
+#  description :text             not null
+#  user_id     :integer          not null
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
