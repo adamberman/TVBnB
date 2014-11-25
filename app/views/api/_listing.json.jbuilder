@@ -1,0 +1,9 @@
+json.extract!(
+	listing,
+	:id,
+	:price,
+	:address,
+	:name,
+	:description,
+	:user_id
+)
