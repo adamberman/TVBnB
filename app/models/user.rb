@@ -11,24 +11,31 @@ class User < ActiveRecord::Base
     user.try(:is_password?, user_params[:password]) ? user : nil
   end
 
-  def password=(password)
+   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
-
-  def is_password?(password)
-    BCrypt::Password.new(self.password_digest).is_password?(password)
-  end
-
-  def reset_token!
-    self.session_token = SecureRandom.urlsafe_base64(16)
+  
+  def reset_session_token!
+    self.session_token = SecureRandom.base64(16)
     self.save!
     self.session_token
   end
-
-  protected
-
-  def ensure_session_token
-    self.session_token ||= SecureRandom.urlsafe_base64(16)
+  
+  def is_password?(password)
+    BCrypt::Password.new(self.password_digest).is_password?(password)
   end
+  
+  def self.find_by_credentials(username, password)
+    user = User.find_by(username: username)
+    return nil if user.nil?
+    user.is_password?(password) ? user : nil
+  end
+  
+  private
+  
+  def ensure_session_token
+    self.session_token ||= SecureRandom.base64(16)
+  end
+end
 end
