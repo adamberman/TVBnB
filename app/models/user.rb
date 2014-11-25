@@ -38,4 +38,3 @@ class User < ActiveRecord::Base
     self.session_token ||= SecureRandom.base64(16)
   end
 end
-end

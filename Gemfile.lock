@@ -35,6 +35,8 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (4.0.1)
+      execjs
     backbone-on-rails (1.1.1.0)
       actionmailer
       actionpack
@@ -158,6 +160,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  autoprefixer-rails
   backbone-on-rails
   bcrypt
   better_errors
