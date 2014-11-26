@@ -1,4 +1,19 @@
 TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
+	initialize: function(){
+		this.listenTo(this.collection, 'sync', this.render);
+		this.listenTo(this.collection, 'add', this.addListing);
+		this.listenTo(this.collection, 'remove', this.removeListing);
+		this.collection.each(this.addListing.bind(this));
+	},
+	addListing: function(listing){
+		var listing = new TVBnB.Views.ListingsItem({
+			model: listing 
+		});
+		this.addSubview('.listings', listing);
+	},
+	removeListing: function(){
+
+	},
 	className: 'listings-index',
 	template: JST['index/listings_index'],
 	render: function() {
