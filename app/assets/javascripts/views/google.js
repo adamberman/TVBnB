@@ -25,6 +25,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.northEast = this.map.getBounds().getNorthEast();
 		console.log(this.southWest);
 		console.log(this.northEast);
+		//trigger my custom event on the collection
 	},
 
 	addListing: function(listing){
