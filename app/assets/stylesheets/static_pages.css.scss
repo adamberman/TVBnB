@@ -5,14 +5,15 @@
 	display: inline-block;
 	top: 0px;
 }
+html {
+	height: 100%;
+}
 body {
-  /*height: 900px;*/
-	/*width: 900px;*/
+  height: 100%;
 }
 .backdrop {
 	position: relative;
 	top: 30px;
-	background-color: lightgrey;
 	height: 100%;
 	width: 100%;
 }
@@ -24,7 +25,6 @@ body {
 	display: inline-block;
 	height: 100%;
 	width: 39%;
-	background-color: blue;
 }
 .other{
 	position: fixed;
@@ -34,7 +34,6 @@ body {
 	min-height: 400px;
 	height: 100%;
 	width: 60%;
-	background-color: red;
 }
 .google-view{
 	position: fixed;

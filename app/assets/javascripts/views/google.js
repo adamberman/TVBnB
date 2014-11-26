@@ -16,11 +16,15 @@ TVBnB.Views.Google = Backbone.View.extend({
 	createMap: function(){
 		this.map = new google.maps.Map(this.$("#map-canvas")[0], this.mapOptions);
 		this.addAllListings();
-		google.maps.event.addListener(this.map, 'idle', this.getMapBounds.bind(this));
+		google.maps.event.addListener(this.map, 'idle', this.setSearchBounds.bind(this));
 	},
 
-	getMapBounds: function(){
-		console.log(this.map.getBounds());
+	setSearchBounds: function(){
+		debugger;
+		this.southWest = this.map.getBounds().getSouthWest();
+		this.northEast = this.map.getBounds().getNorthEast();
+		console.log(this.southWest);
+		console.log(this.northEast);
 	},
 
 	addListing: function(listing){
@@ -36,7 +40,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		});
 		this.markers[listingId] = marker;
 	},
-	
+
 	addAllListings: function(){
 		this.collection.each(this.addListing.bind(this));
 	},
