@@ -6,6 +6,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		};
 	},
 	template: JST['index/google'],
+	tagName: "google-view",
 	onRender: function(){
 		Backbone.CompositeView.prototype.onRender.call(this);
 		this.loadScript();
