@@ -2,11 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .navbar {
-	position: absolute;
+	display: inline-block;
 	top: 0px;
+}
+body {
+	height: 900px;
+	width: 900px;
 }
 .backdrop {
 	position: relative;
 	top: 30px;
 	background-color: lightgrey;
+	height: 100%;
+	width: 100%;
+}
+#map-canvas {
+	height: 100;
+	margin: 0;
+	padding: 0;
+}
+.google {
+	height: 100px;
+	width: 50px;
+	background-color: blue;
+}
+#map-canvas {
+	height: 500px;
+	width: 500px;
+	background-color: red;
 }
