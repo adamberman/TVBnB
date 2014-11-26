@@ -6,7 +6,10 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 		"": "index"
 	},
 	index: function(){
-
+		var collection = new TVBnB.Collections.Listings();
+		collection.fetch();
+		var view = new TVBnB.Views.Main({collection: collection});
+		this._swapView(view);
 	},
 	_swapView: function(newView){
 		if(this._currentView){

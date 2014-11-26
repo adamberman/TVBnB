@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     )
     if @user
       log_in!(@user)
-      redirect_to user_url(@user)
+      redirect_to root_url
     else
       @user = User.new(username: params[:user][:username])
       flash.now[:errors] = ["Username or password does not match"]

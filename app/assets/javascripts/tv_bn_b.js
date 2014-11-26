@@ -4,6 +4,8 @@ window.TVBnB = {
   Views: {},
   Routers: {},
   initialize: function() {
+  	new TVBnB.Routers.Router({$rootEl: $("#main")});
+  	Backbone.history.start();
   }
 };
 
