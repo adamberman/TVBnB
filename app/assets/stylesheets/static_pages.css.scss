@@ -6,8 +6,8 @@
 	top: 0px;
 }
 body {
-	height: 900px;
-	width: 900px;
+  /*height: 900px;*/
+	/*width: 900px;*/
 }
 .backdrop {
 	position: relative;
@@ -21,13 +21,15 @@ body {
 	width: 100%;
 }
 .google {
-	float: left;
+	display: inline-block;
 	height: 100%;
 	width: 50%;
 	background-color: blue;
 }
 .other{
-	float: right;
+	display: inline-block;
+	/*float: right;*/
+	min-height: 500px;
 	height: 100%;
 	width: 50%;
 	background-color: red;
@@ -37,6 +39,7 @@ body {
 	width: 100%;
 }
 #map-canvas {
+	min-height: 400px;
 	height: 100%;
 	width: 100%;
 	position: relative;
