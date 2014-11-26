@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require bootstrap-sprockets
+//= require composite_view
 //= require tv_bn_b
 //= require_tree ../templates
 //= require_tree ./models
