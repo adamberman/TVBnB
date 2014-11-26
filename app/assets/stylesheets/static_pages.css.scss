@@ -16,15 +16,17 @@ body {
 	height: 100%;
 	width: 100%;
 }
-#map-canvas {
-	height: 100;
-	margin: 0;
-	padding: 0;
-}
 .google {
-	height: 100px;
-	width: 50px;
+	float: left;
+	height: 100%;
+	width: 50%;
 	background-color: blue;
+}
+.other{
+	float: right;
+	height: 100%;
+	width: 50%;
+	background-color: red;
 }
 #map-canvas {
 	height: 500px;
