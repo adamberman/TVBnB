@@ -23,18 +23,23 @@ body {
 .google {
 	display: inline-block;
 	height: 100%;
-	width: 49%;
+	width: 39%;
 	background-color: blue;
 }
 .other{
+	position: fixed;
+	top: 30px;
 	display: inline-block;
 	/*float: right;*/
 	min-height: 400px;
 	height: 100%;
-	width: 50%;
+	width: 60%;
 	background-color: red;
 }
 .google-view{
+	position: fixed;
+	top: 30px;
+	display: inline-block;
 	height: 100%;
 	width: 100%;
 }
