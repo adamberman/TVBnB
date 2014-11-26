@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20141126192013) do
     t.integer  "user_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "latitude",    null: false
-    t.string   "longitude",   null: false
+    t.float    "latitude",    null: false
+    t.float    "longitude",   null: false
   end
 
   add_index "listings", ["address"], name: "index_listings_on_address", using: :btree

@@ -6,7 +6,9 @@ TVBnB.Views.Main = Backbone.CompositeView.extend({
 	className: "main",
 	template: JST['index/main'],
 	addGoogle: function(){
-		var google = new TVBnB.Views.Google();
+		var google = new TVBnB.Views.Google({
+			collection: this.collection
+		});
 		this.addSubview(".google", google);
 	},
 	addListIndex: function(){

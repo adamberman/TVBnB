@@ -4,15 +4,33 @@ TVBnB.Views.Google = Backbone.View.extend({
 			center: new google.maps.LatLng(-34.397, 150.644),
 			zoom: 8
 		};
+		this.markers = {}
+		this.listenTo(this.collection, 'sync', this.addAllListings);
+
 	},
 	template: JST['index/google'],
 	tagName: "google-view",
-	onRender: function(){
-		Backbone.CompositeView.prototype.onRender.call(this);
-		this.loadScript();
-	},
 	createMap: function(){
 		this.map = new google.maps.Map(this.$("#map-canvas")[0], this.mapOptions);
+	},
+	onRender: function(){
+		Backbone.CompositeView.prototype.onRender.call(this);
+		this.collection.each(this.addListing.bind(this));
+	},
+	addListing: function(listing){
+		var listingId = listing.id;
+		var latitude = listing.get('latitude');
+		var longitude = listing.get('longitude');
+		var content = listing.get('title');
+		var pos = new google.maps.LatLng(latitude, longitude);
+		var marker = new google.maps.Marker({
+			position: pos,
+			map: this.map
+		});
+		this.markers[listingId] = marker;
+	},
+	addAllListings: function(){
+		this.collection.each(this.addListing.bind(this));
 	},
 	render: function(){
 		var content = this.template();
