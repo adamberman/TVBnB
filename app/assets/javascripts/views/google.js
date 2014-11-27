@@ -7,6 +7,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.markers = {}
 		this.listenTo(this.collection, 'sync', this.addAllListings);
 		this.listenTo(this.collection, 'add', this.addListing);
+		this.listenTo(this.collection, 'newSearch', this.addAllListings);
 	},
 
 	template: JST['index/google'],
@@ -20,12 +21,10 @@ TVBnB.Views.Google = Backbone.View.extend({
 	},
 
 	setSearchBounds: function(){
-		debugger;
 		this.southWest = this.map.getBounds().getSouthWest();
 		this.northEast = this.map.getBounds().getNorthEast();
-		console.log(this.southWest);
-		console.log(this.northEast);
-		//trigger my custom event on the collection
+		var options = {southWest: this.southWest, northEast: this.northEast};
+		this.collection.trigger("newSearch", options);
 	},
 
 	addListing: function(listing){
