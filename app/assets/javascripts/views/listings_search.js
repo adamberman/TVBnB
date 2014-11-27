@@ -13,7 +13,7 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 	submitForm: function(event){
 		event.preventDefault();
 		var options = $(event.currentTarget).serializeJSON();
-		this.collection.trigger("newSearch", price);
+		this.collection.trigger("newSearch", options);
 	},
 
 	render: function(){

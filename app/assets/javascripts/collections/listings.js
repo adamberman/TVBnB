@@ -22,8 +22,8 @@ TVBnB.Collections.Listings = Backbone.Collection.extend({
 				model.get('latitude') > boundaries.south &&
 				model.get('longitude') < boundaries.east &&
 				model.get('longitude') > boundaries.west &&
-				model.get('price') < price.max &&
-				model.get('price') > price.min;
+				model.get('price') <= price.max &&
+				model.get('price') >= price.min;
 		}));		
 	}
 });
