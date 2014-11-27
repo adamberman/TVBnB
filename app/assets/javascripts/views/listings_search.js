@@ -12,6 +12,7 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 
 	submitForm: function(event){
 		event.preventDefault();
+		debugger;
 		// create object with price min and max
 		// trigger event from collection, send trigger
 	},
