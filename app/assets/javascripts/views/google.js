@@ -50,7 +50,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 	removeListing: function(listing){
 		//find listing
 		//remove listing
-	}
+	},
 
 	addAllListings: function(){
 		this.collection.each(this.addListing.bind(this));
