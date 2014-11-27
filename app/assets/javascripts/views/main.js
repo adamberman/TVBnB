@@ -13,7 +13,9 @@ TVBnB.Views.Main = Backbone.CompositeView.extend({
 		this.addSubview(".google", google);
 	},
 	addSearch: function(){
-		var search = new TVBnB.Views.ListingsSearch();
+		var search = new TVBnB.Views.ListingsSearch({
+			collection: this.collection
+		});
 		this.addSubview('.other', search);
 	},
 	addListIndex: function(){

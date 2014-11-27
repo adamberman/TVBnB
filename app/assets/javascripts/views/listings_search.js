@@ -7,11 +7,13 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 	template: JST['index/listings_search'],
 
 	events: {
-		"change form": "submitForm"
+		"submit form": "submitForm"
 	},
 
 	submitForm: function(event){
 		event.preventDefault();
+		// create object with price min and max
+		// trigger event from collection, send trigger
 	},
 
 	render: function(){
