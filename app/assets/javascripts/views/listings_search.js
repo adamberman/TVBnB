@@ -12,9 +12,8 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 
 	submitForm: function(event){
 		event.preventDefault();
-		var price = $(event.currentTarget).serializeJSON().price;
-		// create object with price min and max
-		// trigger event from collection, send trigger
+		var options = $(event.currentTarget).serializeJSON();
+		this.collection.trigger("newSearch", price);
 	},
 
 	render: function(){
