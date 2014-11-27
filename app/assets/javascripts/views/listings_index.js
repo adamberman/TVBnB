@@ -27,7 +27,7 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 		});
 		this.removeSubview('.listings', listing);
 	},
-	className: 'listings-index',
+	className: 'listings-index row',
 	template: JST['index/listings_index'],
 	render: function() {
 		var content = this.template();
