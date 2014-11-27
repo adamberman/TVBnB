@@ -15,6 +15,7 @@
 class Listing < ActiveRecord::Base
 	validates :price, :address, :name, :description, :user, presence: true
 	belongs_to :user
+	has_many :images
 
 	geocoded_by :address
 	after_validation :geocode
