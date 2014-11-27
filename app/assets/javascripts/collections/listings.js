@@ -16,12 +16,14 @@ TVBnB.Collections.Listings = Backbone.Collection.extend({
 		}
 		return listing;
 	},
-	search: function(options) {
+	search: function(boundaries, price) {
 		return _(this.filter(function(model){
-			return model.get('latitude') < options.north &&
-				model.get('latitude') > options.south &&
-				model.get('longitude') < options.east &&
-				model.get('longitude') > options.west;
+			return model.get('latitude') < boundaries.north &&
+				model.get('latitude') > boundaries.south &&
+				model.get('longitude') < boundaries.east &&
+				model.get('longitude') > boundaries.west &&
+				model.get('price') < price.max &&
+				model.get('price') > price.min;
 		}));		
 	}
 });
