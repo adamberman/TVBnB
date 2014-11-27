@@ -49,3 +49,24 @@ body {
 	position: relative;
 	top: 19px;
 }
+
+/* Listings Index Items */
+
+.listing-description {
+	padding: 10px;
+}
+
+.listing-mouseover:hover {
+	opacity: 1.0;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+</*a class="listing-mouseover" href="#">
+	<div class="carousel-container"></div>
+	<div class="listing-description">
+		<%= listing.escape('name') %>
+	</div>
+</a>*/
