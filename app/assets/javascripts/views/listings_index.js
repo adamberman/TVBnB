@@ -15,11 +15,14 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 	},
 
 	filterCollection: function(options){
+		if(options){
+			this._boundaries = options;
+		}
 		var that = this;
 		this.children.forEach(function(listing){
 			that.removeSubview('.listings', listing)
 		});
-		this._listingsSource = this.collection.search(options);
+		this._listingsSource = this.collection.search(this._boundaries);
 		this.collection.trigger('filter');
 	},
 
