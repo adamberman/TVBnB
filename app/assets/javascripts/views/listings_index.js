@@ -1,11 +1,7 @@
 TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 	initialize: function(){
-		this.listenTo(this.collection, 'sync', this.render);
-		this.listenTo(this.collection, 'add', this.addListing);
-		this.listenTo(this.collection, 'remove', this.removeListing);
 		this.listenTo(this.collection, 'newSearch', this.filterCollection);
 		this.listenTo(this.collection, 'filter', this.renderListingsSource);
-		this.collection.each(this.addListing.bind(this));
 	},
 	addListing: function(listing){
 		var listing = new TVBnB.Views.ListingsItem({
@@ -18,8 +14,8 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 		this.collection.trigger('filter');
 	},
 	renderListingsSource: function(){
-		debugger;
-		// this._listingSource.each(this.addListing.bind(this)); //problematic
+		this._listingsSource.each(this.addListing.bind(this));
+		this.render();
 	},
 	removeListing: function(list){
 		var listing = _.find(this.subviews('.listings'), function(subview){
