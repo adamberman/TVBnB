@@ -18,11 +18,10 @@ TVBnB.Collections.Listings = Backbone.Collection.extend({
 	},
 	search: function(options) {
 		return _(this.filter(function(model){
-			return model.get('latitude') < options.northEast &&
-				model.get('latitude') > options.southWest &&
-				model.get('longitude') < options.northEast &&
-				model.get('longitude') > options.southWest;
-				this.trigger('filter');
-			}));
+			return model.get('latitude') < options.north &&
+				model.get('latitude') > options.south &&
+				model.get('longitude') < options.east &&
+				model.get('longitude') > options.west;
+		}));		
 	}
 });
