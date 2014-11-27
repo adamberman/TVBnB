@@ -7,6 +7,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.markers = {}
 		this.listenTo(this.collection, 'sync', this.addAllListings);
 		this.listenTo(this.collection, 'add', this.addListing);
+		this.listenTo(this.collection, 'remove', this.removeListing);
 		this.listenTo(this.collection, 'newSearch', this.addAllListings);
 	},
 
@@ -45,6 +46,11 @@ TVBnB.Views.Google = Backbone.View.extend({
 		});
 		this.markers[listingId] = marker;
 	},
+
+	removeListing: function(listing){
+		//find listing
+		//remove listing
+	}
 
 	addAllListings: function(){
 		this.collection.each(this.addListing.bind(this));
