@@ -5,6 +5,8 @@ json.extract!(
 	:address,
 	:name,
 	:description,
+	:latitude,
+	:longitude,
 	:user_id
 )
 urls = []
