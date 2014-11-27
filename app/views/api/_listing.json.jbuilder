@@ -7,3 +7,6 @@ json.extract!(
 	:description,
 	:user_id
 )
+urls = []
+listing.images.each { |image| urls.push(image.url) }
+json.urls urls
