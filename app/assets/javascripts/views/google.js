@@ -1,7 +1,7 @@
 TVBnB.Views.Google = Backbone.View.extend({
 	initialize: function(){
 		this.mapOptions = {
-			center: new google.maps.LatLng(-34.397, 150.644),
+			center: new google.maps.LatLng(37, -122),
 			zoom: 8
 		};
 		this.markers = {}

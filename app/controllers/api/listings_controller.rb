@@ -8,7 +8,7 @@ module Api
 
 		def index
 			@listings = Listing.all.includes(:images)
-			render json: @listings
+			render :index
 		end
 	end
 end
