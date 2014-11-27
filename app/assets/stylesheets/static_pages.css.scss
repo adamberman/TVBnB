@@ -46,7 +46,7 @@ body {
 	min-height: 400px;
 	height: 100%;
 	width: 100%;
-	position: relative;
+	position: fixed;
 	top: 19px;
 }
 
@@ -76,6 +76,7 @@ a:hover {
 	width: 50%;
 	float: left;
 	position: relative;
+	left: 5px;
 	min-height: 1px;
 }
 
