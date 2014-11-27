@@ -23,7 +23,12 @@ TVBnB.Views.Google = Backbone.View.extend({
 	setSearchBounds: function(){
 		this.southWest = this.map.getBounds().getSouthWest();
 		this.northEast = this.map.getBounds().getNorthEast();
-		var options = {southWest: this.southWest, northEast: this.northEast};
+		var options = {
+			south: this.southWest.lat(),
+			west: this.southWest.lng(),
+			north: this.northEast.lat(),
+			east: this.northEast.lng()
+		};
 		this.collection.trigger("newSearch", options);
 	},
 
