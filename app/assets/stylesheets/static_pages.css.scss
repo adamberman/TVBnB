@@ -34,6 +34,8 @@ body {
 	min-height: 400px;
 	height: 100%;
 	width: 60%;
+	overflow-y: scroll;
+	background: #f7f7f7;
 }
 .google-view{
 	position: fixed;
@@ -68,7 +70,9 @@ a:hover {
 	padding-right: 15px;
 	background-color: #f5f5f5;
 	position: relative;
-	left: 15px;
+	margin: 0;
+	padding: 20px;
+	border-top: 1px solid #dce0e0;
 }
 
 .listings-item {
@@ -79,6 +83,10 @@ a:hover {
 	float: left;
 	min-height: 1px;
 	margin: 7.5px;
+}
+
+.listings {
+	margin-bottom: 50px;
 }
 
 .row {
