@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
 
   has_many :listings, dependent: :destroy
+  has_many :reservations, dependent: :destroy
 
   attr_reader :password
   after_initialize :ensure_session_token
