@@ -13,7 +13,6 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 		event.preventDefault();
 		var options = $(event.currentTarget).serializeJSON();
 		this.collection.trigger("newSearch", options);
-		debugger;
 	},
 
 	initDatePicker: function(){
@@ -27,10 +26,6 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 				startDate: new Date(),
 				autoclose: true
 			});
-			// true;
-			// that.$('.input-daterange').datepicker({
-   //  		todayHighlight: true
-			// });
 		}, 0);
 	},
 
