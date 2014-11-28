@@ -36,8 +36,8 @@ TVBnB.Collections.Listings = Backbone.Collection.extend({
 			debugger;
 			var overlap = false;
 			for(var i = 0; i < model.get('reservations').length; i++){
-				var start = new Date(model.get('reservations')[i][0]);
-				var end = new Date(model.get('reservations')[i][1]);
+				var start = new Date(model.get('reservations')[i][0] + " PST");
+				var end = new Date(model.get('reservations')[i][1] + " PST");
 				if((date.start >= start && date.start <= end) ||
 					(date.end >= start && date.start <= end) ||
 					(date.start <= start && date.end >= end)){
