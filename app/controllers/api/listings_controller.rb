@@ -7,7 +7,7 @@ module Api
 		end
 
 		def index
-			@listings = Listing.all.includes(:images)
+			@listings = Listing.all.includes(:images, :reservations)
 			render :index
 		end
 	end
