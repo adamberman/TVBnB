@@ -14,3 +14,9 @@ listing.images.each do |image|
 	urls.push(image.url)
 end
 json.urls urls
+
+reservations = []
+listing.reservations.each do |reservation|
+	urls.push([reservation.start_date, reservation.end_date])
+end
+json.reservations reservations
