@@ -73,6 +73,7 @@ a:hover {
 	margin: 0;
 	padding: 20px;
 	border-top: 1px solid #dce0e0;
+	height: 100%;
 }
 
 .listings-item {
@@ -87,6 +88,8 @@ a:hover {
 
 .listings {
 	margin-bottom: 50px;
+	height: 100%;
+	display: table;
 }
 
 .row {
