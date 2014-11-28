@@ -13,11 +13,7 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 		event.preventDefault();
 		var options = $(event.currentTarget).serializeJSON();
 		this.collection.trigger("newSearch", options);
-	},
-
-	changeForm: function(event){
-		event.preventDefault();
-		alert('hello');
+		debugger;
 	},
 
 	initDatePicker: function(){
