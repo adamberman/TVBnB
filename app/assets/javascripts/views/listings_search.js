@@ -6,8 +6,7 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 	template: JST['index/listings_search'],
 
 	events: {
-		"submit form": "submitForm",
-		"change form": "changeForm"
+		"change form": "submitForm"
 	},
 
 	submitForm: function(event){
