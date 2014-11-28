@@ -6,13 +6,19 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 	template: JST['index/listings_search'],
 
 	events: {
-		"submit form": "submitForm"
+		"submit form": "submitForm",
+		"change form": "changeForm"
 	},
 
 	submitForm: function(event){
 		event.preventDefault();
 		var options = $(event.currentTarget).serializeJSON();
 		this.collection.trigger("newSearch", options);
+	},
+
+	changeForm: function(event){
+		event.preventDefault();
+		alert('hello');
 	},
 
 	initDatePicker: function(){
