@@ -23,7 +23,14 @@ TVBnB.Collections.Listings = Backbone.Collection.extend({
 				model.get('longitude') < boundaries.east &&
 				model.get('longitude') > boundaries.west &&
 				model.get('price') <= price.max &&
-				model.get('price') >= price.min;
+				model.get('price') >= price.min &&
+				for(var i = 0; i < model.get('reservations').length; i++){
+					var start = model.get('reservations')[i][0];
+					var end = model.get('reservations')[i][1];
+					(date.start >= start && date.start <= end) ||
+					(date.end >= start && date.start <= end) ||
+					(date.start <= start && date.end >= end);
+				};
 		}));		
 	}
 });
