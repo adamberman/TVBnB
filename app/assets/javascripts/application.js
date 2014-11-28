@@ -16,6 +16,7 @@
 //= require underscore
 //= require backbone
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
 //= require composite_view
 //= require tv_bn_b
 //= require_tree ../templates
