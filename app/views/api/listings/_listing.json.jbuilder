@@ -17,6 +17,6 @@ json.urls urls
 
 reservations = []
 listing.reservations.each do |reservation|
-	urls.push([reservation.start_date, reservation.end_date])
+	reservations.push([reservation.start_date, reservation.end_date])
 end
 json.reservations reservations
