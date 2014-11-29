@@ -81,6 +81,31 @@ body {
 .input-daterange {
 	width: 80%;
 }
+.price-title {
+	width: 15%;
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.price-container {
+	width: 100%;
+	display: inline-block;
+	padding-bottom: 10px;
+}
+
+.input-pricerange {
+	width: 70%;
+	float: left;
+	position: relative;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.slider.slider-horizontal {
+	width: 80%;
+}
 
 /* Listings Index Items */
 
