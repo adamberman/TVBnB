@@ -1,10 +1,32 @@
 <h1>Search</h1>
 <form>
-	<div class="input-daterange input-group" id="datepicker">
-    <input type="text" id="start" class="input-sm form-control" placeholder="Start Date" name="date[start]" />
-    <span class="input-group-addon">to</span>
-    <input type="text" id="end" class="input-sm form-control" placeholder="End Date" name="date[end]" />
+	<div class="date-container">
+		<div class="col-xs-3">
+			<label>Dates</label>
+		</div>
+		<div class="input-daterange input-group col-xs-9" id="datepicker">
+	    <input type="text" id="start" class="input-sm form-control" placeholder="Start Date" name="date[start]" />
+	    <span class="input-group-addon">to</span>
+	    <input type="text" id="end" class="input-sm form-control" placeholder="End Date" name="date[end]" />
+		</div>
 	</div>
+	<br>
+	<b>
+		$0
+	</b>
+	<input 
+		id="price-slider" 
+		type="text"
+		name="price"
+		class="span2" 
+		value="" 
+		data-slider-min="0" 
+		data-slider-max="1000" 
+		data-slider-step="5" 
+		data-slider-value="[0,1000]"/> 
+	<b>
+		$1000
+	</b>
 	<label>
 		Price Min:
 		<input 

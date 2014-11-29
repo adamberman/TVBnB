@@ -51,6 +51,36 @@ body {
 	position: fixed;
 	top: 19px;
 }
+/* Search Bar */
+
+.col-xs-3 {
+	width: 15%;
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.col-xs-9 {
+	width: 70%%;
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.date-container {
+	width: 100%;
+	display: inline-block;
+	border-bottom: 1px solid #dce0e0;
+	padding-bottom: 10px;
+}
+
+.input-daterange {
+	width: 80%;
+}
 
 /* Listings Index Items */
 
@@ -97,8 +127,6 @@ a.listing-mouseover {
 .item {
 	min-height: 240px;
 	min-width: 350px;
-	max-height: 240px;
-	max-width: 350px;
 }
 
 .row {

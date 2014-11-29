@@ -17,6 +17,7 @@
 //= require backbone
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
+//= require bootstrap-slider.js
 //= require composite_view
 //= require tv_bn_b
 //= require_tree ../templates
