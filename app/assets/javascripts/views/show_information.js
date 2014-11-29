@@ -8,7 +8,7 @@ TVBnB.Views.ShowInformation = Backbone.CompositeView.extend({
 	className: "information-container",
 
 	addTitle: function(){
-		var title = TVBnB.Views.ShowTitle({
+		var title = new TVBnB.Views.ShowTitle({
 			model: this.model
 		});
 		this.addSubview('.title', title);

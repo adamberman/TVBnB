@@ -3,7 +3,6 @@ TVBnB.Views.ListingShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model, 'sync', this.addCarousel);
 		this.listenTo(this.model, 'sync', this.addInformation);
 		this.listenTo(this.model, 'sync', this.render);
-		
 	},
 
 	template: JST['show/main'],
