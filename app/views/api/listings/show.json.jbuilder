@@ -1,0 +1,1 @@
+json.partial! 'listing', listign: @listing
