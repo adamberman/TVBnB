@@ -1,9 +1,7 @@
-<div class="show-carousel">
-	<% for(var i = 0; i < listing.get('urls').length; i++){ %>
-		<div class="<%= i === 0 ? 'item active' : 'item' %>">
-			<a href="#">
-				<img src="<%= listing.get('urls')[i] %>">
-			</a>
-		</div>
-	<% } %>
+<div class="show-carousel-wrapper">
+	<div class="show-carousel">
+		<% for(var i = 0; i < listing.get('urls').length; i++){ %>
+				<div><img class="show-carousel-img" src="<%= listing.get('urls')[i] %>"></div>
+		<% } %>
+	</div>
 </div>

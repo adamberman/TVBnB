@@ -165,6 +165,34 @@ a.listing-mouseover {
 
 }
 
+/* Show Page */
+
+.slick-prev, .slick-next {
+	opacity: 1;
+	z-index: 9999;
+	font-weight: bold;
+	height: 50px;
+}
+
+.slick-prev {
+	left: 25px;
+}
+
+.slick-next {
+	right: 25px;
+}
+
+.show-carousel-img {
+	margin: 0px;
+	width: 100%;
+	position: relative;
+	top: -60%;
+}
+
+.slick-slide {
+	height: 402px;
+}
+
 /*!
  * Datepicker for Bootstrap
  *

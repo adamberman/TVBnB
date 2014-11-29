@@ -3,9 +3,11 @@ TVBnB.Views.ShowCarousel = Backbone.View.extend({
 
 	initCarousel: function(){
 		this.$('.show-carousel').slick({
-			arrows: true,
 			dots: true,
-			speed: 600
+			infinite: true,
+			speed: 500,
+			slidesToShow: 1,
+			slidesToScroll: 1
 		});
 	},
 
@@ -14,7 +16,10 @@ TVBnB.Views.ShowCarousel = Backbone.View.extend({
 			listing: this.model
 		});
 		this.$el.html(content);
-		this.initCarousel();
+		var that = this;
+		setTimeout(function(){
+			that.initCarousel();
+		}, 0);
 		return this;
 	}
 })

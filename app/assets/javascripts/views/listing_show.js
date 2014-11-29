@@ -1,6 +1,8 @@
 TVBnB.Views.ListingShow = Backbone.CompositeView.extend({
 	initialize: function(){
+		this.listenTo(this.model, 'sync', this.addCarousel);
 		this.listenTo(this.model, 'sync', this.render);
+		
 	},
 
 	template: JST['show/main'],
@@ -18,9 +20,6 @@ TVBnB.Views.ListingShow = Backbone.CompositeView.extend({
 		var content = this.template();
 		var that = this;
 		this.$el.html(content);
-		setTimeout(function(){
-			that.addCarousel();
-		}, 0)
 		this.attachSubviews();
 		return this;
 	}
