@@ -3,8 +3,17 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 		this.$rootEl = options.$rootEl;
 	},
 	routes: {
-		"": "index"
+		"": "index",
+		"listings/:id": "show"
 	},
+
+	show: function(id){
+		var listing = new TVBnB.Models.Listing({id: id});
+		listing.fetch();
+		var view = new TVBnB.Views.ListingShow({model: listing});
+		this._swapView(view);
+	},
+
 	index: function(){
 		var collection = new TVBnB.Collections.Listings();
 		collection.fetch();
