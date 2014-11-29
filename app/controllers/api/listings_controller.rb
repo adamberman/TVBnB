@@ -4,6 +4,8 @@ module Api
 		end
 
 		def show
+			@listing = Listing.find(params[:id])
+			render :show
 		end
 
 		def index
