@@ -66,6 +66,12 @@ a:hover {
 	text-decoration: none;
 }
 
+a.listing-mouseover {
+	display: block;
+	color: #565a5c;
+	border: 1px solid grey;
+}
+
 .listings-index {
 	padding-right: 15px;
 	background-color: #f5f5f5;
@@ -90,6 +96,11 @@ a:hover {
 	margin-bottom: 50px;
 	height: 100%;
 	display: table;
+}
+
+.item {
+	min-height: 240px;
+	min-width: 350px;
 }
 
 .row {

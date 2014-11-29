@@ -1,5 +1,5 @@
 TVBnB.Views.ListingsItem = Backbone.CompositeView.extend({
-	className: 'listings-item row panel-default',
+	className: 'listings-item panel-default',
 	template: JST['index/listings_item'],
 	initialize: function(){
 		this.addCarousel();
