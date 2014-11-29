@@ -1,1 +1,1 @@
-json.partial! 'listing', listign: @listing
+json.partial! @listing, partial: 'listing', as: :listing
