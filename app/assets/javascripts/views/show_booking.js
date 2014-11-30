@@ -11,13 +11,22 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 		event.preventDefault();
 		var formValues = $(event.currentTarget).serializeJSON();
 		var numDays;
+		var disableButton;
 		if(formValues.date.start != "" && formValues.date.end != ""){
 			var numDays = (new Date(formValues.date.end) - new Date(formValues.date.start))/ (1000 * 60 * 60 * 24);
+			disableButton = false;
 		} else {
 			var numDays = 0;
+			disableButton = true;
 		}
 		var options = {start: formValues.date.start, end: formValues.date.end, numDays: numDays};
 		this.render(options);
+		button = this.$('button.request-to-book');
+		if(disableButton){
+			button.prop('disabled', true);
+		} else {
+			button.prop('disabled', false);
+		}
 	},
 
 	initDatePicker: function(){
