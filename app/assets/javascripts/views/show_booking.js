@@ -1,4 +1,8 @@
 TVBnB.Views.ShowBooking = Backbone.View.extend({
+	initialize: function(){
+		this._reservations = this.model.reservations;
+	},
+	
 	template: JST['show/booking'],
 
 	className: 'booking-container',
@@ -42,7 +46,7 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 		var that = this;
 		newReservation.save({}, {
 			success: function(){
-				that.model.fetch();
+				that._reservations.add(newReservation);
 				that.bookSuccess();
 			}
 		})

@@ -6,6 +6,7 @@ module Api
 
 			if @reservation.save
 				flash.now[:success] = ["You have successfully booked this listing!"]
+				render json: @reservation
 			else
 				render json: @reservation.errors.full_messages, status: :unprocessable_entity
 			end
