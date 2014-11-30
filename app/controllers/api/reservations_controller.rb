@@ -2,6 +2,7 @@ module Api
 	class ReservationsController < ApplicationController
 		def create
 			@reservation = current_listing.reservations.new(reservation_params)
+			@reservation.user_id = current_user.id
 
 			if @reservation.save
 				flash.now[:success] = ["You have successfully booked this listing!"]
@@ -22,7 +23,7 @@ module Api
 		end
 
 		def reservation_params
-			params.require(:reservation).permit(:user_id, :listing_id, :start_date, :end_date)
+			params.require(:reservation).permit(:listing_id, :start_date, :end_date)
 		end
 	end
 end

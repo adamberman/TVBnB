@@ -32,7 +32,13 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 
 	submitBookingRequest: function(event){
 		event.preventDefault();
-		var formValues = this.$('form').serializeJSON();
+		var formValues = this.$('form').serializeJSON().date;
+		var params = {
+			start_date: formValues.start,
+			end_date: formValues.end, 
+			listing_id: this.model.id
+		};
+		var newReservation = new TVBnB.Models.Reservation(params);
 	},
 
 	initDatePicker: function(){
