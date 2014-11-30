@@ -9,7 +9,8 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 
 	events: {
 		"change form": "changeForm",
-		"click button.request-to-book": "submitBookingRequest"
+		"click button.request-to-book": "submitBookingRequest",
+		"click": "removeSuccessMessage"
 	},
 
 	changeForm: function(event){
@@ -53,7 +54,12 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 	},
 
 	bookSuccess: function(){
+		this.$('.booking-success').removeClass('booking-success-invisible');
 		alert('reservation booked successfully!');
+	},
+
+	removeSuccessMessage: function(){
+		this.$('.booking-success').addClass('booking-success-invisible');
 	},
 
 	initDatePicker: function(){
