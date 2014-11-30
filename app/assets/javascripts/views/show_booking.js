@@ -10,9 +10,14 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 	changeForm: function(event){
 		event.preventDefault();
 		var formValues = $(event.currentTarget).serializeJSON();
-		var numDays = (new Date(formValues.date.end) - new Date(formValues.date.start))/ (1000 * 60 * 60 * 24);
-		var options: {numDays: numDays};
-		this.render();
+		var numDays;
+		if(formValues.date.start != "" && formValues.date.end != ""){
+			var numDays = (new Date(formValues.date.end) - new Date(formValues.date.start))/ (1000 * 60 * 60 * 24);
+		} else {
+			var numDays = 0;
+		}
+		var options = {start: formValues.date.start, end: formValues.date.end, numDays: numDays};
+		this.render(options);
 	},
 
 	initDatePicker: function(){
@@ -37,12 +42,12 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 		if(options){
 			var content = this.template({
 				listing: this.model,
-				numDays: options.numDays
+				options: options
 			});
 		} else {
 			var content = this.template({
 				listing: this.model,
-				numDays: 0
+				options: {start: "", end: "", numDays: 0}
 			});
 		}
 		this.$el.html(content);
