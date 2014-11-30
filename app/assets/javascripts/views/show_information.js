@@ -1,6 +1,7 @@
 TVBnB.Views.ShowInformation = Backbone.CompositeView.extend({
 	initialize: function(){
 		this.addTitle();
+		this.addDescription();
 	},
 
 	template: JST['show/information'],
@@ -12,6 +13,13 @@ TVBnB.Views.ShowInformation = Backbone.CompositeView.extend({
 			model: this.model
 		});
 		this.addSubview('.title', title);
+	},
+
+	addDescription: function(){
+		var description = new TVBnB.Views.ShowDescription({
+			model: this.model
+		});
+		this.addSubview('.description', description);
 	},
 
 	render: function(){
