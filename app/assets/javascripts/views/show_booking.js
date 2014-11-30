@@ -39,6 +39,17 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 			listing_id: this.model.id
 		};
 		var newReservation = new TVBnB.Models.Reservation(params);
+		var that = this;
+		newReservation.save({}, {
+			success: function(){
+				that.model.fetch();
+				that.bookSuccess();
+			}
+		})
+	},
+
+	bookSuccess: function(){
+		alert('reservation booked successfully!');
 	},
 
 	initDatePicker: function(){
