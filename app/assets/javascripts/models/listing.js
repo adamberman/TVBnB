@@ -1,5 +1,6 @@
 TVBnB.Models.Listing = Backbone.Model.extend({
-	urlRoot: "/api/listings"
+	urlRoot: "/api/listings",
+	
 	reservations: function(){
 		if(!this._reservations){
 			this._reservations = new TVBnB.Collections.Reservations([], { listing: this });
