@@ -10,6 +10,14 @@ TVBnB.Views.ListingShow = Backbone.CompositeView.extend({
 
 	className: 'show-main',
 
+	events: {
+		"click": "removeSuccessMessage"
+	},
+
+	removeSuccessMessage: function(){
+		this.$('.booking-success').addClass('booking-success-invisible');
+	},
+
 	addCarousel: function(){
 		var carousel = new TVBnB.Views.ShowCarousel({
 			model: this.model
