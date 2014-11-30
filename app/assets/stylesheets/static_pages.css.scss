@@ -201,11 +201,16 @@ a.listing-mouseover {
 	margin-left: 17%;
 	width: 40%;
 	margin-right: 6%;
+	float: left;
+	display: inline-block;
 }
 
 .booking {
 	width: 19%;
 	margin-right: 17%;
+	float: left;
+	display: inline-block;
+	background-color: #f5f5f5
 }
 
 .title {
