@@ -4,7 +4,8 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 	className: 'booking-container',
 
 	events: {
-		"change form": "changeForm"
+		"change form": "changeForm",
+		"click button.request-to-book": "submitBookingRequest"
 	},
 
 	changeForm: function(event){
@@ -27,6 +28,11 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 		} else {
 			button.prop('disabled', false);
 		}
+	},
+
+	submitBookingRequest: function(event){
+		event.preventDefault();
+		var formValues = this.$('form').serializeJSON();
 	},
 
 	initDatePicker: function(){
