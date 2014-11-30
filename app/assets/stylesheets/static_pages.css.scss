@@ -209,11 +209,28 @@ a.listing-mouseover {
 }
 
 .title {
-	border-bottom: 1px solid #dce0e0;
 }
 .title-container {
 	margin-bottom: 37.5px;
 	background-color: #fff;
+}
+
+.description-container {
+	height: 100%;
+	background-color: #f5f5f5
+}
+
+.row-space-4 {
+	margin-top: 0px;
+	padding-top: 10px;
+	padding-left: 5px;
+}
+
+.listing-description {
+	margin-top: 0px;
+	padding-left: 5px;
+	margin-bottom: 15px;
+	text-align: left;
 }
 
 /*!
