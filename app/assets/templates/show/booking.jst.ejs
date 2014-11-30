@@ -1,9 +1,13 @@
-<h1>Booking</h1>
-<div class="date-container">
-	<div class="col-xs-3">
-		<label>Dates</label>
-	</div>
-	<div class="input-daterange input-group col-xs-9" id="datepicker">
+<div class="booking-price-container">
+	<h4 class="booking-price">$<%= listing.escape('price') %></h4>
+	<h4 class="booking-per-night">Per Night</h4>
+</div>
+<div class="start-end">
+	<p class="check-in">Check In</p>
+	<p class="check-out">Check Out</p>
+</div>
+<div class="date-container booking-date-container">
+	<div class="input-daterange input-group booking-dates" id="datepicker">
     <input type="text" id="start" class="input-sm form-control" placeholder="Start Date" name="date[start]" />
     <span class="input-group-addon">to</span>
     <input type="text" id="end" class="input-sm form-control" placeholder="End Date" name="date[end]" />

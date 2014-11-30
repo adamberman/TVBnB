@@ -198,7 +198,7 @@ a.listing-mouseover {
 }
 
 .information {
-	margin-left: 17%;
+	margin-left: 12%;
 	width: 40%;
 	margin-right: 6%;
 	float: left;
@@ -206,8 +206,8 @@ a.listing-mouseover {
 }
 
 .booking {
-	width: 19%;
-	margin-right: 17%;
+	width: 29%;
+	margin-right: 12%;
 	float: left;
 	display: inline-block;
 	background-color: #f5f5f5
@@ -237,6 +237,37 @@ a.listing-mouseover {
 	margin-bottom: 15px;
 	text-align: left;
 }
+
+.booking-dates {
+	width: 90%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.booking-price, .check-in {
+	padding-left: 10px;
+	float: left;
+}
+
+.booking-per-night, .check-out {
+	padding-right: 10px;
+	float: right;
+}
+
+.booking-price-container {
+	display: block;
+	height: 40px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #dce0e0;
+	margin-bottom: 10px;
+}
+
+.booking-date-container {
+	border-bottom: 0px;
+}
+
+
 
 /*!
  * Datepicker for Bootstrap
