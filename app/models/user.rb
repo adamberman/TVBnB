@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 
   has_many :listings, dependent: :destroy
   has_many :reservations, dependent: :destroy
+  has_many :reviews, depedent: :destroy
 
   attr_reader :password
   after_initialize :ensure_session_token

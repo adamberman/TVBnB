@@ -17,6 +17,7 @@ class Listing < ActiveRecord::Base
 	belongs_to :user
 	has_many :images, dependent: :destroy
 	has_many :reservations, dependent: :destroy
+	has_many :reviews, dependent: :destroy
 
 	geocoded_by :address
 	after_validation :geocode
