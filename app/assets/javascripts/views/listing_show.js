@@ -2,6 +2,7 @@ TVBnB.Views.ListingShow = Backbone.CompositeView.extend({
 	initialize: function(){
 		this.listenTo(this.model, 'sync', this.addCarousel);
 		this.listenTo(this.model, 'sync', this.addInformation);
+		this.listenTo(this.model, 'sync', this.addBooking);
 		this.listenTo(this.model, 'sync', this.render);
 	},
 
@@ -21,6 +22,13 @@ TVBnB.Views.ListingShow = Backbone.CompositeView.extend({
 			model: this.model
 		});
 		this.addSubview(".information", information);
+	},
+
+	addBooking: function(){
+		var booking = new TVBnB.Views.ShowBooking({
+			model: this.model
+		});
+		this.addSubview(".booking", booking);
 	},
 
 	render: function(){
