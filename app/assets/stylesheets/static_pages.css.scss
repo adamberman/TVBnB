@@ -304,8 +304,15 @@ a.listing-mouseover {
 
 .review-info {
 	text-align: left;
-	width: 20%;
 	float: left;
+}
+
+.review-show {
+	min-height: 50px;
+	width: 100%;
+	overflow: auto;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #dce0e0;
 }
 
 /*!
