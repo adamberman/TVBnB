@@ -4,13 +4,31 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 		this.activeIndex = 0;
 	},
 
+	events {
+		'click .slide-right': 'next',
+		'click .slide-left': 'back'
+	},
+
 	template: JST['index/carousel'],
+
+	activate: function(){
+
+	},
+
+	next: function(){
+
+	},
+
+	back: function(){
+
+	},
 
 	render: function(){
 		var content = this.template({
 			urls: this.urls
 		});
 		this.$el.html(content)
+		this.activate();
 		return this;
 	}
 })
