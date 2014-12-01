@@ -11,6 +11,11 @@ module Api
 			end
 		end
 
+		def show
+			@review = Review.find(params[:id])
+			render :show
+		end
+
 		private
 
 		def current_listing
