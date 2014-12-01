@@ -1,17 +1,7 @@
-<div class="carousel slide" id="myCarousel">
-  <div class="carousel-inner">
+<div class="item-carousel-wrapper">
+  <div class="item-carousel">
     <% for(var i = 0; i < listing.get('urls').length; i++){ %>
-    	<div class="<%= i === 0 ? 'item active' : 'item' %>">
-  			<a href="#">
-  				<img src="<%= listing.get('urls')[i] %>">
-  			</a>
-    	</div>
+        <div><img class="item-carousel-img" src="<%= listing.get('urls')[i] %>"></div>
     <% } %>
-  </div>        
-  <a data-slide="prev" href="#myCarousel" class="carousel-control left">
-  	‹
-  </a>
-  <a data-slide="next" href="#myCarousel" class="carousel-control right">
-  	›
-  </a>
-</div><!-- /#myCarousel -->
+  </div>
+</div>

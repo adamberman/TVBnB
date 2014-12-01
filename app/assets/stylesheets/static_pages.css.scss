@@ -146,6 +146,7 @@ a.listing-mouseover {
 .listings {
 	margin-bottom: 50px;
 	height: 100%;
+	width: 100%;
 	display: table;
 }
 
@@ -164,6 +165,17 @@ a.listing-mouseover {
 .carousel-container {
 
 }
+.item-carousel-img{
+	margin: 0px;
+	width: 100%;
+}
+.show-carousel-img {
+	margin: 0px;
+	width: 100%;
+	position: relative;
+	top: -60%;
+}
+
 
 /* Show Page */
 
@@ -189,7 +201,7 @@ a.listing-mouseover {
 	top: -60%;
 }
 
-.slick-slide {
+.show-carousel-img-wrapper {
 	height: 402px;
 }
 

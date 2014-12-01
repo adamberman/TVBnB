@@ -2,12 +2,13 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 	template: JST['index/carousel'],
 
 	initCarousel: function(){
-		var that = this;
-		setTimeout(function(){
-			$('.carousel').carousel({
-				interval: false
-			});
-		}, 0);
+		this.$('.item-carousel').slick({
+			dots: true,
+			infinite: true,
+			speed: 500,
+			slidesToShow: 1,
+			slidesToScroll: 1
+		});
 	},
 
 	render: function(){
