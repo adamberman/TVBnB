@@ -38,6 +38,9 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 			that.$startDate.on('changeDate', function(){
 				that.$endDate.datepicker('setStartDate', that.$startDate.datepicker('getDate'))
 			});
+			that.$endDate.on('changeDate', function(){
+				that.$startDate.datepicker('setEndDate', that.$endDate.datepicker('getDate'))
+			});
 		}, 0);
 	},
 
