@@ -21,53 +21,31 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 	},
 
 	next: function(){
-		if(this.transitioning){
-			return;
-		}
-		this.transitioning = true;
 		this.$active = this.$divItems.eq(this.activeIndex);
-		this.$active.addClass('right-carousel');
+		this.$active.removeClass('active-carousel');
+		this.$active.addClass('inactive-carousel');
 		if(this.activeIndex + 1 >= this.$divItems.length) {
 			this.activeIndex = 0;
 		} else {
 			this.activeIndex ++;
 		}
 		this.$next = this.$divItems.eq(this.activeIndex);
-		this.$next.addClass('left-carousel');
-		var that = this;
-		setTimeout(function(){
-			that.$next.removeClass('left-carousel');
-		}, 0);
-		this.$el.one('transitionend', 'div', function(){
-			that.$active.removeClass();
-			that.transitioning = false;
-		})
-		this.$next.addClass('active-carousel')
+		this.$next.removeClass('inactive-carousel')
+		this.$next.addClass('active-carousel');
 	},
 
 	back: function(){
-		if(this.transitioning){
-			return;
-		}
-		this.transitioning = true;
 		this.$active = this.$divItems.eq(this.activeIndex);
-		this.$active.addClass('left-carousel');
+		this.$active.removeClass('active-carousel');
+		this.$active.addClass('inactive-carousel');
 		if(this.activeIndex - 1 < 0){
 			this.activeIndex = this.$divItems.length - 1;
 		} else {
 			this.activeIndex --;
 		}
 		this.$next = this.$divItems.eq(this.activeIndex);
-		this.$next.addClass('right-carousel');
-		var that = this;
-		setTimeout(function(){
-			that.$next.removeClass('right-carousel');
-		}, 0);
-		this.$el.one('transitionend', 'div', function(){
-			that.$active.removeClass();
-			that.transitioning = false;
-		})
-		this.$next.addClass('active-carousel')
+		this.$next.removeClass('inactive-carousel')
+		this.$next.addClass('active-carousel');
 	},
 
 	render: function(){
@@ -76,7 +54,6 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 		});
 		this.$el.html(content)
 		this.$divItems = this.$el.find('.item-carousel-img');
-		this.activate();
 		return this;
 	}
 })
