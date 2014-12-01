@@ -3,8 +3,14 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 		this.$rootEl = options.$rootEl;
 	},
 	routes: {
-		"": "index",
+		"": "opening",
+		"search": "search",
 		"listings/:id": "show"
+	},
+
+	opening: function(){
+		var view = new TVBnB.Views.OpeningMain();
+		this._swapView(view);
 	},
 
 	show: function(id){
@@ -14,7 +20,7 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 		this._swapView(view);
 	},
 
-	index: function(){
+	search: function(){
 		var collection = new TVBnB.Collections.Listings();
 		collection.fetch();
 		var view = new TVBnB.Views.Main({collection: collection});

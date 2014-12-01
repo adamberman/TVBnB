@@ -10,6 +10,7 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 	},
 
 	submitForm: function(event){
+		debugger;
 		event.preventDefault();
 		var formValues = $(event.currentTarget).serializeJSON();
 		var formPrice = formValues.price.split(',');

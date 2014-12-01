@@ -17,4 +17,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+
+
 @import "slick";
+
+@font-face {
+      font-family:"slick";
+      src:    asset-url("slick.eot");
+      src:    asset-url("slick.eot?#iefix") format("embedded-opentype"),
+              asset-url("slick.woff") format("woff"),
+              asset-url("slick.ttf") format("truetype"),
+              asset-url("slick.svg#slick") format("svg");
+      font-weight: normal;
+      font-style: normal;
+  }

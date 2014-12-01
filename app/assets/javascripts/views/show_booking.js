@@ -25,7 +25,7 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 			disableButton = true;
 		}
 		var options = {start: formValues.date.start, end: formValues.date.end, numDays: numDays};
-		this.render(options);
+		// this.render(options);
 		button = this.$('button.request-to-book');
 		if(disableButton){
 			button.prop('disabled', true);
@@ -73,6 +73,10 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 		}, 0);
 	},
 
+	renderCalc: function() {
+
+	},
+
 	render: function(options){
 		var content;
 		if(options){
@@ -87,6 +91,7 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 			});
 		}
 		this.$el.html(content);
+		this.renderCalc({start: "", end: "", numDays: 0})
 		this.initDatePicker();
 		return this;
 	}
