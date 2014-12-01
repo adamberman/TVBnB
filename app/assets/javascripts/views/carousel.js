@@ -1,10 +1,10 @@
 TVBnB.Views.Carousel = Backbone.View.extend({
-	initialize: function(){
+	initialize: function(options){
 		this.urls = options.urls;
 		this.activeIndex = 0;
 	},
 
-	events {
+	events: {
 		'click .slide-right': 'next',
 		'click .slide-left': 'back'
 	},
@@ -12,7 +12,7 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 	template: JST['index/carousel'],
 
 	activate: function(){
-		this.$active = this.$divItems.eq(activeIndex);
+		this.$active = this.$divItems.eq(this.activeIndex);
 		this.$active.addClass('active-carousel');
 	},
 
@@ -25,14 +25,14 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 			return;
 		}
 		this.transitioning = true;
-		this.$active = this.$divItems.eq(activeIndex);
+		this.$active = this.$divItems.eq(this.activeIndex);
 		this.$active.addClass('right-carousel');
 		if(this.activeIndex + 1 >= this.$divItems.length) {
 			this.activeIndex = 0;
 		} else {
 			this.activeIndex ++;
 		}
-		this.$next = this.$divItems.eq(activeIndex);
+		this.$next = this.$divItems.eq(this.activeIndex);
 		this.$next.addClass('left-carousel');
 		var that = this;
 		setTimeout(function(){
@@ -50,14 +50,14 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 			return;
 		}
 		this.transitioning = true;
-		this.$active = this.$divItems.eq(activeIndex);
+		this.$active = this.$divItems.eq(this.activeIndex);
 		this.$active.addClass('left-carousel');
 		if(this.activeIndex - 1 < 0){
 			this.activeIndex = this.$divItems.length - 1;
 		} else {
 			this.activeIndex --;
 		}
-		this.$next = this.$divItems.eq(activeIndex);
+		this.$next = this.$divItems.eq(this.activeIndex);
 		this.$next.addClass('right-carousel');
 		var that = this;
 		setTimeout(function(){
