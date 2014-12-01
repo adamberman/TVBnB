@@ -12,15 +12,32 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 	template: JST['index/carousel'],
 
 	activate: function(){
+		this.$active = this.$divItems.eq(activeIndex);
+		this.$active.addClass('active');
+	},
 
+	deactivate: function(){
+		this.$active.removeClass('active');
 	},
 
 	next: function(){
-
+		this.deactivate();
+		if(this.activeIndex + 1 >= this.$divItems.length) {
+			this.activeIndex = 0;
+		} else {
+			this.activeIndex ++;
+		}
+		this.activate();
 	},
 
 	back: function(){
-
+		this.deactivate();
+		if(this.activeIndex - 1 < 0){
+			this.activeIndex = this.$divItems.length - 1;
+		} else {
+			this.activeIndex --;
+		}
+		this.activate();
 	},
 
 	render: function(){
@@ -28,6 +45,7 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 			urls: this.urls
 		});
 		this.$el.html(content)
+		this.$divItems = this.$el.find('.item-carousel-img');
 		this.activate();
 		return this;
 	}
