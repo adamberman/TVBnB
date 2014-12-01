@@ -7,6 +7,16 @@ TVBnB.Views.ReviewsIndex = Backbone.CompositeView.extend({
 	},
 
 	addReview: function(review){
-		
+		var subview = new TVBnB.Views.ReviewItem({
+			model: review 
+		});
+		this.addSubview('.reviews-list', subview);
+	},
+
+	removeReview: function(review){
+		var subview = _.find(this.subviews('.reviews-list'), function(subview){
+			return subview.model === review;
+		});
+		this.removeSubview('.reviews-list', subview);
 	}
 })
