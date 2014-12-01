@@ -124,6 +124,7 @@ a:hover {
 a.listing-mouseover {
 	display: block;
 	color: #565a5c;
+	width: 100%;
 	border: 1px solid grey;
 }
 
@@ -139,6 +140,7 @@ a.listing-mouseover {
 	padding-left: 15px;
 	width: 45%;
 	float: left;
+	overflow: auto;
 	min-height: 1px;
 	margin: 7.5px;
 }
@@ -165,15 +167,10 @@ a.listing-mouseover {
 .carousel-container {
 
 }
-.item-carousel-img{
-	margin: 0px;
-	width: 100%;
-}
-.show-carousel-img {
-	margin: 0px;
-	width: 100%;
-	position: relative;
-	top: -60%;
+
+.item-carousel-img-wrapper {
+	min-height: 240px;
+	min-width: 350px;
 }
 
 
