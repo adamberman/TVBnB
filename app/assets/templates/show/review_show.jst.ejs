@@ -1,1 +1,7 @@
-<h4>Review Item</h4>
+<div class="review-user">
+	<p class="review-user-info"><%= user.escape('name') %></p>
+</div>
+<div class="review-info">
+	<p class="review-info-content"><%= review.escape('content') %></p>
+	<p class="review-info-date"><%= review.escape('created_at') %></p>
+</div>

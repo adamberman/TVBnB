@@ -23,6 +23,6 @@ json.reservations reservations
 
 reviews = []
 listing.reviews.each do |review|
-	reviews.push([review.content, review.user_id, review.created_at])
+	reviews.push(review)
 end
 json.reviews reviews
