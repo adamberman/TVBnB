@@ -142,11 +142,13 @@ a.listing-mouseover {
 	margin: 7.5px;
 }
 
-.listings {
+.row-space-8 {
 	margin-bottom: 50px;
-	height: 100%;
-	width: 100%;
-	display: table;
+}
+
+.row-condensed {
+	margin-left: -6.25px;
+	margin-right: -6.25px;
 }
 
 .item {
