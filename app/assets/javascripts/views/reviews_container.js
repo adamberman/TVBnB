@@ -8,7 +8,7 @@ TVBnB.Views.ReviewsContainer = Backbone.CompositeView.extend({
 	className: 'reviews-container',
 
 	addReviewsIndex: function(){
-		var reviews = TVBnB.Views.ReviewsIndex({
+		var reviews = new TVBnB.Views.ReviewsIndex({
 			collection: this.model.reviews()
 		});
 		this.addSubview('.reviews-index', reviews);
