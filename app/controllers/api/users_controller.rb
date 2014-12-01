@@ -3,7 +3,7 @@ module Api
 
 		def show
 			@user = User.find(params[:id])
-			render json: @user
+			render :show
 		end
 	end
 end
