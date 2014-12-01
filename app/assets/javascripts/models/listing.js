@@ -8,10 +8,21 @@ TVBnB.Models.Listing = Backbone.Model.extend({
 		return this._reservations;
 	},
 
+	reviews: function(){
+		if(!this._reviews){
+			this._reviews = new TVBnB.Collections.Reviews([], { listing: this });
+		}
+		return this._reviews;
+	},
+
 	parse: function(response){
 		if(response.reservations){
 			this.reservations().set(response.reservations, { parse: true });
 			delete response.reservations;
+		}
+		if(response.reviews){
+			this.reviews().set(response.reviews, { parse: true });
+			delete response.reviews;
 		}
 		return response;
 	}
