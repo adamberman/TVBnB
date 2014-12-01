@@ -290,16 +290,22 @@ a.listing-mouseover {
 	color: #82888a;
 }
 
-.review-info-content {
+.review-info-content, .review-info-date {
 	margin-bottom: 15px;
+	text-align: left;
 }
 
 .review-user {
 	text-align: left;
+	width: 20%;
+	float: left;
+	margin-right: 10px;
 }
 
 .review-info {
 	text-align: left;
+	width: 20%;
+	float: left;
 }
 
 /*!

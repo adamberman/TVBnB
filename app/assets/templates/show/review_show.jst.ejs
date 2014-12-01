@@ -3,5 +3,6 @@
 </div>
 <div class="review-info">
 	<p class="review-info-content"><%= review.escape('content') %></p>
-	<p class="review-info-date"><%= review.escape('created_at') %></p>
+	<% var date = new Date(review.escape('created_at')) %>
+	<p class="review-info-date"><%= date.getMonth() %>/<%= date.getDate() %>/<%= date.getFullYear() %></p>
 </div>
