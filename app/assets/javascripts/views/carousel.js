@@ -1,6 +1,7 @@
 TVBnB.Views.Carousel = Backbone.View.extend({
 	initialize: function(){
 		this.urls = options.urls;
+		this.activeIndex = 0;
 	},
 
 	template: JST['index/carousel'],
