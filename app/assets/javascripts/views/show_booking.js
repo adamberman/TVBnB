@@ -1,7 +1,6 @@
 TVBnB.Views.ShowBooking = Backbone.View.extend({
 	initialize: function(){
 		this._reservations = this.model.reservations();
-		this.addCalculator();
 	},
 
 	template: JST['show/booking'],
@@ -89,15 +88,16 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 				listing: this.model,
 				options: options
 			});
+			this.$el.html(content);
 			this.updateCalculator({numDays: options.numDays, price: this.model.get('price')});
 		} else {
 			var content = this.template({
 				listing: this.model,
 				options: {start: "", end: ""}
 			});
+			this.$el.html(content);
 			this.updateCalculator({numDays: 0, price: this.model.get('price')});
 		}
-		this.$el.html(content);
 		this.initDatePicker();
 		return this;
 	}
