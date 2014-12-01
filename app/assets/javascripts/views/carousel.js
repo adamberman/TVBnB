@@ -6,8 +6,7 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 
 	events: {
 		'click .slide-right': 'next',
-		'click .slide-left': 'back',
-		'click img': 'goToShowPage'
+		'click .slide-left': 'back'
 	},
 
 	template: JST['index/carousel'],
@@ -49,12 +48,9 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 		this.$next.addClass('active-carousel');
 	},
 
-	goToShowPage: function(){
-		Backbone.history.navigate('listings/' + this.model.id, { trigger: true });
-	}
-
 	render: function(){
 		var content = this.template({
+			id: this.model.id,
 			urls: this.urls
 		});
 		this.$el.html(content)
