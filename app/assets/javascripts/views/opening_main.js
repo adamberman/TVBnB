@@ -19,7 +19,7 @@ TVBnB.Views.OpeningMain = Backbone.CompositeView.extend({
 
 	addSearch: function(){
 		var search = new TVBnB.Views.OpeningSearch();
-		this.addSubview('opening-search', search);
+		this.addSubview('.opening-search-container', search);
 	},
 
 	render: function(){
