@@ -2,7 +2,7 @@
   <div class="item-carousel">
     <% for(var i = 0; i < urls.length; i++){ %>
         <div class="item-carousel-img-wrapper">
-        	<img class="item-carousel-img" src="<%= urls[i] %>">
+        	<img class="item-carousel-img <%= i === 0 ? 'active-carousel' : 'inactive-carousel' %>" src="<%= urls[i] %>">
         </div>
     <% } %>
   </div>
