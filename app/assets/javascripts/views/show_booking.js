@@ -1,7 +1,7 @@
 TVBnB.Views.ShowBooking = Backbone.View.extend({
 	initialize: function(){
 		this._reservations = this.model.reservations();
-		this._datePickerStarted = false;
+		this.addCalculator();
 	},
 
 	template: JST['show/booking'],
@@ -14,9 +14,6 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 	},
 
 	changeForm: function(event){
-		// that.$startDate.on('changeDate', function(){
-		// 		that.$endDate.datepicker('setStartDate', that.$startDate.datepicker('getDate'))
-		// 	});
 		event.preventDefault();
 		var formValues = $(event.currentTarget).serializeJSON();
 		var numDays;
@@ -29,7 +26,7 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 			disableButton = true;
 		}
 		var options = {start: formValues.date.start, end: formValues.date.end, numDays: numDays};
-		this.render(options);
+		this.updateCalculator(options);
 		button = this.$('button.request-to-book');
 		if(disableButton){
 			button.prop('disabled', true);
@@ -71,8 +68,19 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 				startDate: new Date(),
 				autoclose: true
 			});
+			that.$startDate.on('changeDate', function(){
+				that.$endDate.datepicker('setStartDate', that.$startDate.datepicker('getDate'))
+			});
 		}, 0);
 	},
+
+	updateCalculator: function(options) {
+		var $calculator = this.$el.find('.price-calculator');
+		var content = this.renderCalculator(options);
+		$calculator.html(content);
+	},
+
+	renderCalculator: JST['show/calculator'],
 
 	render: function(options){
 		var content;
@@ -81,17 +89,17 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 				listing: this.model,
 				options: options
 			});
+			this.updateCalculator({numDays: options.numDays});
 		} else {
 			var content = this.template({
 				listing: this.model,
-				options: {start: "", end: "", numDays: 0}
+				options: {start: "", end: ""}
 			});
+			this.updateCalculator({numDays: 0});
 		}
 		this.$el.html(content);
-		if (!this._datePickerStarted){
-			this.initDatePicker();
-			this._datePickerStarted = true;
-		}
+		this.initDatePicker();
+		debugger;
 		return this;
 	}
 })
