@@ -1,6 +1,7 @@
 TVBnB.Views.ShowBooking = Backbone.View.extend({
 	initialize: function(){
 		this._reservations = this.model.reservations();
+		this._datePickerStarted = false;
 	},
 
 	template: JST['show/booking'],
@@ -13,6 +14,9 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 	},
 
 	changeForm: function(event){
+		// that.$startDate.on('changeDate', function(){
+		// 		that.$endDate.datepicker('setStartDate', that.$startDate.datepicker('getDate'))
+		// 	});
 		event.preventDefault();
 		var formValues = $(event.currentTarget).serializeJSON();
 		var numDays;
@@ -25,7 +29,7 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 			disableButton = true;
 		}
 		var options = {start: formValues.date.start, end: formValues.date.end, numDays: numDays};
-		// this.render(options);
+		this.render(options);
 		button = this.$('button.request-to-book');
 		if(disableButton){
 			button.prop('disabled', true);
@@ -67,14 +71,7 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 				startDate: new Date(),
 				autoclose: true
 			});
-			that.$startDate.on('changeDate', function(){
-				that.$endDate.datepicker('setStartDate', that.$startDate.datepicker('getDate'))
-			});
 		}, 0);
-	},
-
-	renderCalc: function() {
-
 	},
 
 	render: function(options){
@@ -91,8 +88,10 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 			});
 		}
 		this.$el.html(content);
-		this.renderCalc({start: "", end: "", numDays: 0})
-		this.initDatePicker();
+		if (!this._datePickerStarted){
+			this.initDatePicker();
+			this._datePickerStarted = true;
+		}
 		return this;
 	}
 })

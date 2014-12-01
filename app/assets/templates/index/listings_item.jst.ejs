@@ -2,7 +2,9 @@
 	<div class="listing-mouseover">
 		<div class="carousel-container"></div>
 		<div class="listing-description">
-			<%= listing.escape('name') %>
+			<a class="listing-content-wrapper" href="#/listings/<%= id %>">
+				<%= listing.escape('name') %>
+			</a>
 		</div>
 	</div>
 </div>
