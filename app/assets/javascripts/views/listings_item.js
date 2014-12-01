@@ -6,7 +6,7 @@ TVBnB.Views.ListingsItem = Backbone.CompositeView.extend({
 	},
 	addCarousel: function(){
 		var carousel = new TVBnB.Views.Carousel({
-			model: this.model
+			options: {urls: this.model.get('urls')}
 		});
 		this.addSubview('.carousel-container', carousel);
 	},
