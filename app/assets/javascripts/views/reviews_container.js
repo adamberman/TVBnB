@@ -1,11 +1,11 @@
-TVBnB.Views.CommentsContainer = Backbone.CompositeView.extend({
+TVBnB.Views.ReviewsContainer = Backbone.CompositeView.extend({
 	initialize: function(){
 
 	},
 
-	template: JST['show/comments_container'],
+	template: JST['show/reviews_container'],
 
-	className: 'comments-container',
+	className: 'reviews-container',
 
 	render: function(){
 		content = this.template();
