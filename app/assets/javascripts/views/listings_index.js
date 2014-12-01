@@ -13,7 +13,7 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 			model: listing 
 		});
 		this.children.push(subview);
-		this.addSubview('.listings', subview);
+		this.addSubview('.listings-container', subview);
 	},
 
 	filterCollection: function(options){
@@ -28,7 +28,7 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 		}
 		var that = this;
 		this.children.forEach(function(listing){
-			that.removeSubview('.listings', listing)
+			that.removeSubview('.listings-container', listing)
 		});
 		this._listingsSource = this.collection.search(this._boundaries, this._price, this._date);
 		this.collection.trigger('filter');
@@ -39,7 +39,7 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 		this.render();
 	},
 
-	className: 'listings-index row',
+	className: 'search-results panel-body',
 
 	template: JST['index/listings_index'],
 
