@@ -1,7 +1,7 @@
 TVBnB.Views.Google = Backbone.View.extend({
 	initialize: function(){
 		this.geocoder = new google.maps.Geocoder();
-		this.location = 'new york, new york';
+		this.location = 'san francisco, ca';
 		if($.cookie('location')){
 			this.location = $.cookie('location');
 		}
