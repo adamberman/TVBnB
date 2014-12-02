@@ -1,4 +1,5 @@
 TVBnB.Views.OpeningSearch = Backbone.View.extend({
+
 	className: 'opening-search',
 
 	template: JST['opening/search'],
@@ -30,6 +31,9 @@ TVBnB.Views.OpeningSearch = Backbone.View.extend({
 	submit: function(event){
 		event.preventDefault();
 		var params = this.$el.find('form').serializeJSON().search;
+		$.cookie('location', params.location, { path: '/' });
+		$.cookie('start_date', params.start_date, { path: '/' });
+		$.cookie('end_date', params.end_date, { path: '/' });
 	},
 
 	render: function(){
