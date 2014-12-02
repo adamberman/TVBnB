@@ -149,6 +149,65 @@ body {
 	right: 0px;
 }
 
+.opening-search-form {
+	width: 70%;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.opening-search-block {
+	width: 30%;
+	display: inline-block;
+	float: left;
+	height: 100%;
+}
+
+.opening-form-dates {
+	display: inline-block;
+	width: 100%;
+	border-bottom: 0px;
+	height: 50px;
+}
+
+.opening-formn-submit {
+	display: inline-block;
+	width: 10%;
+}
+
+.date-search-input {
+	width: 70%;
+	float: left;
+	display: inline-block;
+	height: 100%;
+}
+
+.date-search-input > .opening-start {
+	width: 40%;
+	float: left;
+	display: inline-block;
+	height: 100%;
+}
+
+
+.date-search-input > .btn {
+	padding: 4px 20px;
+	height: 100%;
+}
+
+.date-search-input > .opening-end {
+	width: 40%;
+	float: left;
+	display: inline-block;
+	height: 100%;
+}
+
+.opening-button {
+	float: left;
+	display: inline-block;
+}
+
 /* Listings Index Items */
 
 .listing-description {
