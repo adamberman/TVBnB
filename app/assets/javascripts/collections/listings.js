@@ -16,11 +16,11 @@ TVBnB.Collections.Listings = Backbone.Collection.extend({
 		}
 		return listing;
 	},
-	search: function(boundaries, price, date){
-		return this._searchD(this._searchBP(boundaries, price), start_date, end_date);
+	search: function(boundaries, min_price, max_price, start_date, end_date){
+		return this._searchD(this._searchBP(boundaries, min_price, max_price), start_date, end_date);
 	},
 
-	_searchBP: function(boundaries, price) {
+	_searchBP: function(boundaries, min_price, max_price) {
 		return _(this.filter(function(model){
 			return model.get('latitude') < boundaries.north &&
 				model.get('latitude') > boundaries.south &&
