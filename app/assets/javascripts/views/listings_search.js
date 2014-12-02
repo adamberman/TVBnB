@@ -70,8 +70,11 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 	},
 
 	render: function(){
-		var content = this.template();
+		var content = this.template({
+			location: this.location
+		});
 		this.$el.html(content);
+		debugger;
 		this.initDatePicker();
 		this.initPriceSlider();
 		return this;
