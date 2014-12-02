@@ -4,8 +4,6 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 		this.listenTo(this.collection, 'newSearch', this.filterCollection);
 		this.listenTo(this.collection, 'filter', this.renderListingsSource);
 		this.children = [];
-		this._price = {min: 0, max: 999999999};
-		this._date = {start: new Date(), end: new Date()};
 	},
 
 	addListing: function(listing){
@@ -18,19 +16,32 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 
 	filterCollection: function(options){
 		if(options.boundaries){
-			this._boundaries = options.boundaries;
+			this.boundaries = options.boundaries;
 		}
-		if(options.price){
-			this._price = options.price;
+		if(options.min_price){
+			this.min_price = options.min_price;
 		}
-		if(options.date){
-			this._date = options.date;
+		if(options.max_price){
+			this.max_price = options.max_price;
+		}
+		if(options.start_date){
+			this.start_date = options.start_date;
+		}
+		if(options.end_date){
+			this.end_date = options.end_date;
 		}
 		var that = this;
 		this.children.forEach(function(listing){
 			that.removeSubview('.listings-container', listing)
 		});
-		this._listingsSource = this.collection.search(this._boundaries, this._price, this._date);
+		debugger;
+		this._listingsSource = this.collection.search(
+			this.boundaries, 
+			this.min_price, 
+			this.max_price, 
+			this.start_date, 
+			this.end_date
+		);
 		this.collection.trigger('filter', this._listingsSource);
 	},
 

@@ -76,8 +76,8 @@ TVBnB.Views.Google = Backbone.View.extend({
 			boundaries: boundaries,
 			start_date: this.start_date,
 			end_date: this.end_date,
-			price_min: this.min_price,
-			price_max: this.max_price
+			min_price: this.min_price,
+			max_price: this.max_price
 		};
 		this.collection.trigger("newSearch", options);
 	},

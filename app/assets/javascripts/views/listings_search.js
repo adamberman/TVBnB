@@ -34,7 +34,7 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 			date: formValues.date,
 			price: price
 		};
-		this.collection.trigger("newSearch", options);
+		this.collection.trigger("newParams", options);
 	},
 
 	initDatePicker: function(){
