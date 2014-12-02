@@ -29,7 +29,7 @@ TVBnB.Views.OpeningSearch = Backbone.View.extend({
 
 	submit: function(event){
 		event.preventDefault();
-		debugger;
+		var params = this.$el.find('form').serializeJSON().search;
 	},
 
 	render: function(){
