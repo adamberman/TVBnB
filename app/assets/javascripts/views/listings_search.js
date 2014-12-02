@@ -17,6 +17,8 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 
 	template: JST['index/listings_search'],
 
+	className: 'listing-search-outside-wrapping-container',
+
 	events: {
 		"change form": "submitForm"
 	},
