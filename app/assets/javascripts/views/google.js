@@ -22,7 +22,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.listenTo(this.collection, 'add', this.addListing);
 		this.listenTo(this.collection, 'remove', this.removeListing);
 		this.listenTo(this.collection, 'filter', this.addAllListings);
-		// this.listenTo(this.collection, 'newLocation', this.changeLocation);
+		this.listenTo(this.collection, 'newLocation', this.changeLocation);
 	},
 
 	template: JST['index/google'],
@@ -66,8 +66,8 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.location = params.location;
 		this.start_date = params.start_date;
 		this.end_date = params.end_date;
-		this.price_min = params.price_min;
-		this.price_max = params.price_max;
+		this.min_price = params.min_price;
+		this.max_price = params.max_price;
 		this.codeAddress();
 	},
 
