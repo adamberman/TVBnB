@@ -18,11 +18,11 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 	className: 'listing-search-outside-wrapping-container',
 
 	events: {
-		"change form": "submitForm",
+		"change form": "changeForm",
 		"click button#search-submit": "newLocationSearch"
 	},
 
-	submitForm: function(event){
+	changeForm: function(event){
 		event.preventDefault();
 		var formValues = $(event.currentTarget).serializeJSON();
 		var formPrice = formValues.price.split(',');
@@ -72,8 +72,21 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 
 	newLocationSearch: function(event){
 		event.preventDefault();
-		var searchParam = {location: $('.listing-search-block').val()};
-		this.collection.trigger('newLocation', searchParam);
+		var location = $('.listing-search-block').val();
+		var formParam = $('form').serializeJSON();
+		var dates = formParam.date;
+		var prices = formParam.price.split(',');
+		var params = {
+			location: location, 
+			start_date: dates.start, 
+			end_date: dates.end, 
+			price_min: prices[0], 
+			price_max: prices[1]
+		};
+		$.cookie('location', params.location);
+		$.cookie('start_date', params.start_date);
+		$.cookie('end_date', params.end_date);
+		this.collection.trigger('newLocation', params);
 	},
 
 	render: function(){

@@ -45,7 +45,6 @@ TVBnB.Views.Google = Backbone.View.extend({
 	},
 
 	changeLocation: function(params){
-		$.cookie('location', params.location);
 		this.location = params.location;
 		this.codeAddress();
 	},
