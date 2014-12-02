@@ -7,10 +7,10 @@ TVBnB.Views.Google = Backbone.View.extend({
 		}
 		this.codeAddress();
 		this.markers = {}
-		this.listenTo(this.collection, 'sync', this.addAllListings);
+		// this.listenTo(this.collection, 'sync', this.addAllListings);
 		this.listenTo(this.collection, 'add', this.addListing);
 		this.listenTo(this.collection, 'remove', this.removeListing);
-		this.listenTo(this.collection, 'filter', this.addAllListings);
+		// this.listenTo(this.collection, 'filter', this.addAllListings);
 		this.listenTo(this.collection, 'newLocation', this.changeLocation);
 	},
 
@@ -20,7 +20,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 
 	createMap: function(){
 		this.map = new google.maps.Map(this.$("#map-canvas")[0], this.mapOptions);
-		this.addAllListings();
+		// this.addAllListings();
 		google.maps.event.addListener(this.map, 'idle', this.setSearchBounds.bind(this));
 	},
 
@@ -36,8 +36,9 @@ TVBnB.Views.Google = Backbone.View.extend({
 				if(that.map){
 					that.map.setCenter(that.latLng);
 				} else {
-				that.createMap();
+					that.createMap();
 				}
+				that.setSearchBounds();
 			} else {
 				alert('Geocode was not successful for the following reason: ' + status)
 			}
@@ -46,6 +47,10 @@ TVBnB.Views.Google = Backbone.View.extend({
 
 	changeLocation: function(params){
 		this.location = params.location;
+		this.start_date = params.start_date;
+		this.end_date = params.end_date;
+		this.price_min = params.price_min;
+		this.price_max = params.price_max;
 		this.codeAddress();
 	},
 
@@ -58,7 +63,14 @@ TVBnB.Views.Google = Backbone.View.extend({
 			north: this.northEast.lat(),
 			east: this.northEast.lng()
 		};
-		var options = {boundaries: boundaries};
+		var options = {
+			boundaries: boundaries,
+			start_date: this.start_date || "",
+			end_date: this.end_date || "",
+			price_min: this.price_min || "",
+			price_max: this.price_max || ""
+		};
+		debugger;
 		this.collection.trigger("newSearch", options);
 	},
 
