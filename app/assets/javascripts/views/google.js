@@ -11,6 +11,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.listenTo(this.collection, 'add', this.addListing);
 		this.listenTo(this.collection, 'remove', this.removeListing);
 		this.listenTo(this.collection, 'newSearch', this.addAllListings);
+		this.listenTo(this.collection, 'newLocation', this.changeLocation);
 	},
 
 	template: JST['index/google'],
@@ -32,11 +33,21 @@ TVBnB.Views.Google = Backbone.View.extend({
 					center: that.latLng,
 					zoom: 10
 				};
+				if(that.map){
+					that.map.setCenter(that.latLng);
+				} else {
 				that.createMap();
+				}
 			} else {
 				alert('Geocode was not successful for the following reason: ' + status)
 			}
 		});
+	},
+
+	changeLocation: function(params){
+		$.cookie('location', params.location);
+		this.location = params.location;
+		this.codeAddress();
 	},
 
 	setSearchBounds: function(){
