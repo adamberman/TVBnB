@@ -34,7 +34,6 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 		this.children.forEach(function(listing){
 			that.removeSubview('.listings-container', listing)
 		});
-		debugger;
 		this._listingsSource = this.collection.search(
 			this.boundaries, 
 			this.min_price, 

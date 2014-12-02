@@ -21,7 +21,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		// this.listenTo(this.collection, 'sync', this.addAllListings);
 		this.listenTo(this.collection, 'add', this.addListing);
 		this.listenTo(this.collection, 'remove', this.removeListing);
-		// this.listenTo(this.collection, 'filter', this.addAllListings);
+		this.listenTo(this.collection, 'filter', this.addAllListings);
 		// this.listenTo(this.collection, 'newLocation', this.changeLocation);
 	},
 
@@ -112,7 +112,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 
 	addAllListings: function(subCollection){
 		this._activeMarkers = subCollection;
-		this.activeMarkers.each(this.addListing.bind(this));
+		this._activeMarkers.each(this.addListing.bind(this));
 	},
 
 	render: function(){
