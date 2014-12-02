@@ -1,6 +1,10 @@
 TVBnB.Views.ListingsSearch = Backbone.View.extend({
 
 	initialize: function(){
+		this.location = $.cookie('location');
+		this.start_date = $.cookie('start_date');
+		this.end_date = $.cookie('end_date');
+		debugger;
 	},
 
 	template: JST['index/listings_search'],
