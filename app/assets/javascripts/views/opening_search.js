@@ -5,6 +5,7 @@ TVBnB.Views.OpeningSearch = Backbone.View.extend({
 	template: JST['opening/search'],
 
 	events: {
+		'change form': 'checkIfComplete',
 		'click button': 'submit'
 	},
 
@@ -26,6 +27,11 @@ TVBnB.Views.OpeningSearch = Backbone.View.extend({
 				that.$startDate.datepicker('setEndDate', that.$endDate.datepicker('getDate'))
 			});
 		}, 0);
+	},
+
+	checkIfComplete: function(){
+		var params = this.$el.find('form').serializeJSON.search;
+		debugger;
 	},
 
 	submit: function(event){
