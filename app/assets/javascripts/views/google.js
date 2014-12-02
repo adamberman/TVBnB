@@ -1,16 +1,8 @@
 TVBnB.Views.Google = Backbone.View.extend({
 	initialize: function(){
-		this.location = '';
-		this.start_date = '';
-		this.end_date = '';
+		this.location = 'new york, new york';
 		if($.cookie('location')){
 			this.location = $.cookie('location');
-		}
-		if($.cookie('start_date')){
-			this.start_date = $.cookie('start_date');
-		}
-		if($.cookie('end_date')){
-			this.end_date = $.cookie('end_date');
 		}
 		this.mapOptions = {
 			center: new google.maps.LatLng(37, -122),
