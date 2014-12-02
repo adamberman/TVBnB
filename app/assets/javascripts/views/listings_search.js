@@ -34,6 +34,8 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 			min_price: parseInt(formPrice[0]),
 			max_price: parseInt(formPrice[1])
 		};
+		$.cookie('start_date', formValues.date.start);
+		$.cookie('end_date', formValues.date.end);
 		this.collection.trigger("newParams", options);
 	},
 
