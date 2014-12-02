@@ -30,8 +30,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 
 	createMap: function(){
 		this.map = new google.maps.Map(this.$("#map-canvas")[0], this.mapOptions);
-		google.maps.event.addListener(this.map, 'idle', this.setSearchBounds.bind(this));
-		that.setSearch();
+		google.maps.event.addListener(this.map, 'idle', this.setSearch.bind(this));
 	},
 
 	codeAddress: function(){
@@ -77,10 +76,9 @@ TVBnB.Views.Google = Backbone.View.extend({
 			boundaries: boundaries,
 			start_date: this.start_date,
 			end_date: this.end_date,
-			price_min: this.price_min,
-			price_max: this.price_max
+			price_min: this.min_price,
+			price_max: this.max_price
 		};
-		debugger;
 		this.collection.trigger("newSearch", options);
 	},
 
