@@ -34,6 +34,7 @@ TVBnB.Views.OpeningSearch = Backbone.View.extend({
 		$.cookie('location', params.location, { path: '/' });
 		$.cookie('start_date', params.start_date, { path: '/' });
 		$.cookie('end_date', params.end_date, { path: '/' });
+		Backbone.history.navigate('#/search', { trigger: true });
 	},
 
 	render: function(){
