@@ -79,7 +79,7 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 			}
 			if(that.end_date){
 				that.$endDate.datepicker('setDate', that.end_date);
-				that.$startDate.datepicker('setEndDate', that.start_date);
+				that.$startDate.datepicker('setEndDate', that.end_date);
 			}
 			that.$startDate.on('changeDate', function(){
 				that.$endDate.datepicker('setStartDate', that.$startDate.datepicker('getDate'))

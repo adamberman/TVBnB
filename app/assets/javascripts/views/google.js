@@ -92,7 +92,6 @@ TVBnB.Views.Google = Backbone.View.extend({
 			min_price: this.min_price || 0,
 			max_price: this.max_price || 1000
 		};
-		debugger;
 		this.collection.trigger("newSearch", options);
 	},
 
