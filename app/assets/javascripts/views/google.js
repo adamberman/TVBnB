@@ -4,8 +4,6 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.location = 'san francisco, ca';
 		this.start_date = "";
 		this.end_date = "";
-		this.min_price = 0;
-		this.max_price = 1000;
 		if($.cookie('location')){
 			this.location = $.cookie('location');
 		}
@@ -21,6 +19,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.listings = []
 		this.listenTo(this.collection, 'filter', this.addAllListings);
 		this.listenTo(this.collection, 'newLocation', this.changeLocation);
+		this.listenTo(this.collection, 'newParams', this.changeParams);
 	},
 
 	template: JST['index/google'],
@@ -37,6 +36,13 @@ TVBnB.Views.Google = Backbone.View.extend({
 			this.start_date = new Date();
 			this.end_date = new Date();
 		}
+	},
+
+	changeParams: function(params){
+		this.start_date = params.start_date;
+		this.end_date = params.end_date;
+		this.min_price = params.min_price;
+		this.max_price = params.max_price;
 	},
 
 	codeAddress: function(){
@@ -78,13 +84,15 @@ TVBnB.Views.Google = Backbone.View.extend({
 			north: this.northEast.lat(),
 			east: this.northEast.lng()
 		};
+		this.ensureStartAndEndDate();
 		var options = {
 			boundaries: boundaries,
 			start_date: this.start_date,
 			end_date: this.end_date,
-			min_price: this.min_price,
-			max_price: this.max_price
+			min_price: this.min_price || 0,
+			max_price: this.max_price || 1000
 		};
+		debugger;
 		this.collection.trigger("newSearch", options);
 	},
 
@@ -105,16 +113,13 @@ TVBnB.Views.Google = Backbone.View.extend({
 
 	removeListing: function(listing){
 		var marker = this.markers[listing.id];
-		if(marker){
-			marker.setMap(null);
-			delete this.markers[listing.id];
-		}
+		marker.setMap(null);
+		delete this.markers[listing.id];
 	},
 
 	addAllListings: function(subCollection){
 		this.deleteAllListings();
-		this._activeMarkers = subCollection;
-		this._activeMarkers.each(this.addListing.bind(this));
+		subCollection.each(this.addListing.bind(this));
 	},
 
 	deleteAllListings: function(){
@@ -122,6 +127,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.listings.forEach(function(listing){
 			that.removeListing(listing)
 		});
+		this.listings = [];
 	},
 
 	render: function(){

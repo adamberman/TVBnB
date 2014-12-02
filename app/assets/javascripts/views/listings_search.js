@@ -18,9 +18,7 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 	className: 'listing-search-outside-wrapping-container',
 
 	events: {
-		"change #start": "changeForm",
-		"change #end": "changeForm",
-		"mouseup .slider-handle": "changeForm",
+		"change form": "changeForm",
 		"click button#search-submit": "newLocationSearch"
 	},
 
