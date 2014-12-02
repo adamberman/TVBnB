@@ -13,7 +13,6 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 		if($.cookie('end_date')){
 			this.end_date = $.cookie('end_date');
 		}
-		debugger;
 	},
 
 	template: JST['index/listings_search'],
