@@ -78,8 +78,9 @@ TVBnB.Views.Google = Backbone.View.extend({
 	},
 
 	removeListing: function(listing){
-		//find listing
-		//remove listing
+		var marker = this.markers[listing.id];
+		marker.setMap(null);
+		delete this.markers[carListing.id];
 	},
 
 	addAllListings: function(){

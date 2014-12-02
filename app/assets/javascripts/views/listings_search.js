@@ -19,7 +19,7 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 
 	events: {
 		"change form": "submitForm",
-		"click button#search-submit": "newSearch"
+		"click button#search-submit": "newLocationSearch"
 	},
 
 	submitForm: function(event){
@@ -70,9 +70,9 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 		}, 0);
 	},
 
-	newSearch: function(event){
+	newLocationSearch: function(event){
 		event.preventDefault();
-		var searchParam = {location: $('.listing-search-block').val());
+		var searchParam = {location: $('.listing-search-block').val()};
 		this.collection.trigger('newLocation', searchParam);
 	},
 
