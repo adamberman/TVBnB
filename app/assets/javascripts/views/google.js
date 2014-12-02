@@ -18,8 +18,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.ensureStartAndEndDate();
 		this.codeAddress();
 		this.markers = {}
-		this.listenTo(this.collection, 'add', this.addListing);
-		this.listenTo(this.collection, 'remove', this.removeListing);
+		this.listings = []
 		this.listenTo(this.collection, 'filter', this.addAllListings);
 		this.listenTo(this.collection, 'newLocation', this.changeLocation);
 	},
@@ -100,18 +99,29 @@ TVBnB.Views.Google = Backbone.View.extend({
 			map: this.map,
 			title: content
 		});
+		this.listings.push(listing);
 		this.markers[listingId] = marker;
 	},
 
 	removeListing: function(listing){
 		var marker = this.markers[listing.id];
-		marker.setMap(null);
-		delete this.markers[carListing.id];
+		if(marker){
+			marker.setMap(null);
+			delete this.markers[listing.id];
+		}
 	},
 
 	addAllListings: function(subCollection){
+		this.deleteAllListings();
 		this._activeMarkers = subCollection;
 		this._activeMarkers.each(this.addListing.bind(this));
+	},
+
+	deleteAllListings: function(){
+		var that = this;
+		this.listings.forEach(function(listing){
+			that.removeListing(listing)
+		});
 	},
 
 	render: function(){

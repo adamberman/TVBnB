@@ -18,13 +18,15 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 	className: 'listing-search-outside-wrapping-container',
 
 	events: {
-		"change form": "changeForm",
+		"change #start": "changeForm",
+		"change #end": "changeForm",
+		"mouseup .slider-handle": "changeForm",
 		"click button#search-submit": "newLocationSearch"
 	},
 
 	changeForm: function(event){
 		event.preventDefault();
-		var formValues = $(event.currentTarget).serializeJSON();
+		var formValues = $('form').serializeJSON();
 		var formPrice = formValues.price.split(',');
 		var options = {
 			start_date: formValues.date.start,
