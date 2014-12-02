@@ -72,7 +72,8 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 
 	newSearch: function(event){
 		event.preventDefault();
-		
+		var searchParam = {location: $('.listing-search-block').val());
+		this.collection.trigger('newLocation', searchParam);
 	},
 
 	render: function(){
