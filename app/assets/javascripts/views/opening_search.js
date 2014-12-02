@@ -3,6 +3,10 @@ TVBnB.Views.OpeningSearch = Backbone.View.extend({
 
 	template: JST['opening/search'],
 
+	events: {
+		'click button': 'submit'
+	},
+
 	initDatePicker: function(){
 		var that = this;
 		setTimeout(function(){
@@ -21,6 +25,11 @@ TVBnB.Views.OpeningSearch = Backbone.View.extend({
 				that.$startDate.datepicker('setEndDate', that.$endDate.datepicker('getDate'))
 			});
 		}, 0);
+	},
+
+	submit: function(event){
+		event.preventDefault();
+		debugger;
 	},
 
 	render: function(){
