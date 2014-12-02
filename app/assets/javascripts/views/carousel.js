@@ -6,7 +6,8 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 
 	events: {
 		'click .slide-right': 'next',
-		'click .slide-left': 'back'
+		'click .slide-left': 'back',
+		'click img': 'goToShowPage'
 	},
 
 	template: JST['index/carousel'],
@@ -18,6 +19,10 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 
 	deactivate: function(){
 		this.$active.removeClass('active-carousel');
+	},
+
+	goToShowPage: function(){
+		Backbone.history.navigate('listings/' + this.model.id, { trigger: true });
 	},
 
 	next: function(){
