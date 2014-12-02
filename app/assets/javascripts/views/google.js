@@ -15,6 +15,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		if($.cookie('end_date')){
 			this.end_date = $.cookie('end_date');
 		}
+		this.ensureStartAndEndDate();
 		this.codeAddress();
 		this.markers = {}
 		// this.listenTo(this.collection, 'sync', this.addAllListings);
@@ -31,6 +32,13 @@ TVBnB.Views.Google = Backbone.View.extend({
 	createMap: function(){
 		this.map = new google.maps.Map(this.$("#map-canvas")[0], this.mapOptions);
 		google.maps.event.addListener(this.map, 'idle', this.setSearch.bind(this));
+	},
+
+	ensureStartAndEndDate: function(){
+		if(this.start_date == "" || this.end_date == ""){
+			this.start_date = new Date();
+			this.end_date = new Date();
+		}
 	},
 
 	codeAddress: function(){

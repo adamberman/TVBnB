@@ -18,10 +18,10 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 		if(options.boundaries){
 			this.boundaries = options.boundaries;
 		}
-		if(options.min_price){
+		if(options.min_price || options.min_price === 0){
 			this.min_price = options.min_price;
 		}
-		if(options.max_price){
+		if(options.max_price || options.max_price === 0){
 			this.max_price = options.max_price;
 		}
 		if(options.start_date){
