@@ -24,13 +24,15 @@ TVBnB.Views.Google = Backbone.View.extend({
 	},
 
 	codeAddress: function(){
+		var that = this;
 		this.geocoder.geocode( {'address': this.location}, function(results, status){
 			if(status == google.maps.GeocoderStatus.OK) {
-				this.latLng = results[0].geometry.location;
-				this.mapOptions = {
-					center: this.latLng,
+				that.latLng = results[0].geometry.location;
+				that.mapOptions = {
+					center: that.latLng,
 					zoom: 8
 				};
+				that.createMap();
 			} else {
 				alert('Geocode was not successful for the following reason: ' + status)
 			}
@@ -76,9 +78,6 @@ TVBnB.Views.Google = Backbone.View.extend({
 	render: function(){
 		var content = this.template();
 		this.$el.html(content);
-		setTimeout(function(){
-			this.createMap();
-		}.bind(this), 0)
 		return this;
 	}
 })
