@@ -2,8 +2,18 @@ TVBnB.Views.Google = Backbone.View.extend({
 	initialize: function(){
 		this.geocoder = new google.maps.Geocoder();
 		this.location = 'san francisco, ca';
+		this.start_date = "";
+		this.end_date = "";
+		this.min_price = 0;
+		this.max_price = 1000;
 		if($.cookie('location')){
 			this.location = $.cookie('location');
+		}
+		if($.cookie('start_date')){
+			this.start_date = $.cookie('start_date');
+		}
+		if($.cookie('end_date')){
+			this.end_date = $.cookie('end_date');
 		}
 		this.codeAddress();
 		this.markers = {}
@@ -11,7 +21,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.listenTo(this.collection, 'add', this.addListing);
 		this.listenTo(this.collection, 'remove', this.removeListing);
 		// this.listenTo(this.collection, 'filter', this.addAllListings);
-		this.listenTo(this.collection, 'newLocation', this.changeLocation);
+		// this.listenTo(this.collection, 'newLocation', this.changeLocation);
 	},
 
 	template: JST['index/google'],
@@ -20,8 +30,8 @@ TVBnB.Views.Google = Backbone.View.extend({
 
 	createMap: function(){
 		this.map = new google.maps.Map(this.$("#map-canvas")[0], this.mapOptions);
-		// this.addAllListings();
 		google.maps.event.addListener(this.map, 'idle', this.setSearchBounds.bind(this));
+		that.setSearch();
 	},
 
 	codeAddress: function(){
@@ -35,10 +45,10 @@ TVBnB.Views.Google = Backbone.View.extend({
 				};
 				if(that.map){
 					that.map.setCenter(that.latLng);
+					that.setSearch();
 				} else {
 					that.createMap();
 				}
-				that.setSearchBounds();
 			} else {
 				alert('Geocode was not successful for the following reason: ' + status)
 			}
@@ -54,7 +64,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.codeAddress();
 	},
 
-	setSearchBounds: function(){
+	setSearch: function(){
 		this.southWest = this.map.getBounds().getSouthWest();
 		this.northEast = this.map.getBounds().getNorthEast();
 		var boundaries = {
@@ -65,10 +75,10 @@ TVBnB.Views.Google = Backbone.View.extend({
 		};
 		var options = {
 			boundaries: boundaries,
-			start_date: this.start_date || "",
-			end_date: this.end_date || "",
-			price_min: this.price_min || "",
-			price_max: this.price_max || ""
+			start_date: this.start_date,
+			end_date: this.end_date,
+			price_min: this.price_min,
+			price_max: this.price_max
 		};
 		debugger;
 		this.collection.trigger("newSearch", options);
