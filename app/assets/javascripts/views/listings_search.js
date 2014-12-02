@@ -18,8 +18,8 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 	className: 'listing-search-outside-wrapping-container',
 
 	events: {
-		"change form": "submitForm"
-		"click button#search-submit"
+		"change form": "submitForm",
+		"click button#search-submit": "newSearch"
 	},
 
 	submitForm: function(event){
@@ -68,6 +68,11 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 		setTimeout(function(){
 			$('#price-slider').slider({});
 		}, 0);
+	},
+
+	newSearch: function(event){
+		event.preventDefault();
+		
 	},
 
 	render: function(){
