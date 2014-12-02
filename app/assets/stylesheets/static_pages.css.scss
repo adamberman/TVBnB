@@ -28,7 +28,7 @@ body {
 }
 .other{
 	position: fixed;
-	top: 30px;
+	top: 50px;
 	display: inline-block;
 	overflow-y: scroll;
 	height: 100%;
@@ -50,6 +50,14 @@ body {
 	top: 19px;
 }
 /* Search Bar */
+
+.location-container {
+	width: 100%;
+	display: inline-block;
+	border-bottom: 1px solid #dce0e0;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
 
 .col-xs-3 {
 	width: 15%;
