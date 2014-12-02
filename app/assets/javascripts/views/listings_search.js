@@ -19,6 +19,7 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 
 	events: {
 		"change form": "submitForm"
+		"click button#search-submit"
 	},
 
 	submitForm: function(event){
@@ -74,7 +75,6 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 			location: this.location
 		});
 		this.$el.html(content);
-		debugger;
 		this.initDatePicker();
 		this.initPriceSlider();
 		return this;
