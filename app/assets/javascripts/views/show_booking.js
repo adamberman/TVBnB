@@ -1,5 +1,11 @@
 TVBnB.Views.ShowBooking = Backbone.View.extend({
 	initialize: function(){
+		if($.cookie('start_date')){
+			this.start_date = $.cookie('start_date');
+		}
+		if($.cookie('end_date')){
+			this.end_date = $.cookie('end_date');
+		}
 		this._reservations = this.model.reservations();
 	},
 
@@ -67,6 +73,14 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 				startDate: new Date(),
 				autoclose: true
 			});
+			if(that.start_date){
+				that.$startDate.datepicker('setDate', that.start_date);
+				that.$endDate.datepicker('setStartDate', that.start_date);
+			}
+			if(that.end_date){
+				that.$endDate.datepicker('setDate', that.end_date);
+				that.$startDate.datepicker('setEndDate', that.start_date);
+			}
 			that.$startDate.on('changeDate', function(){
 				that.$endDate.datepicker('setStartDate', that.$startDate.datepicker('getDate'))
 			});
