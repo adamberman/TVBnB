@@ -3,6 +3,7 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 	initialize: function(){
 		this.listenTo(this.collection, 'newSearch', this.filterCollection);
 		this.listenTo(this.collection, 'filter', this.renderListingsSource);
+		this.listenTo(this.collection, 'newParams', this.filterCollection);
 		this.children = [];
 	},
 

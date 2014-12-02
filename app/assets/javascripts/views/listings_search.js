@@ -26,13 +26,11 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 		event.preventDefault();
 		var formValues = $(event.currentTarget).serializeJSON();
 		var formPrice = formValues.price.split(',');
-		var price = {
-			min: parseInt(formPrice[0]),
-			max: parseInt(formPrice[1])
-		};
 		var options = {
-			date: formValues.date,
-			price: price
+			start_date: formValues.date.start,
+			end_date: formValues.date.end,
+			min_price: parseInt(formPrice[0]),
+			max_price: parseInt(formPrice[1])
 		};
 		this.collection.trigger("newParams", options);
 	},
@@ -50,9 +48,11 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 			});
 			if(that.start_date){
 				that.$startDate.datepicker('setDate', that.start_date);
+				that.$endDate.datepicker('setStartDate', that.start_date);
 			}
 			if(that.end_date){
 				that.$endDate.datepicker('setDate', that.end_date);
+				that.$startDate.datepicker('setEndDate', that.start_date);
 			}
 			that.$startDate.on('changeDate', function(){
 				that.$endDate.datepicker('setStartDate', that.$startDate.datepicker('getDate'))

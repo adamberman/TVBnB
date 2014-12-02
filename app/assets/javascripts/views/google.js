@@ -18,7 +18,6 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.ensureStartAndEndDate();
 		this.codeAddress();
 		this.markers = {}
-		// this.listenTo(this.collection, 'sync', this.addAllListings);
 		this.listenTo(this.collection, 'add', this.addListing);
 		this.listenTo(this.collection, 'remove', this.removeListing);
 		this.listenTo(this.collection, 'filter', this.addAllListings);
