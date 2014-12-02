@@ -17,7 +17,8 @@ TVBnB.Collections.Listings = Backbone.Collection.extend({
 		return listing;
 	},
 	search: function(boundaries, min_price, max_price, start_date, end_date){
-		return this._searchD(this._searchBP(boundaries, min_price, max_price), start_date, end_date);
+		var collection = this._searchBP(boundaries, min_price, max_price)
+		return this._searchD(collection, start_date, end_date);
 	},
 
 	_searchBP: function(boundaries, min_price, max_price) {
@@ -34,9 +35,9 @@ TVBnB.Collections.Listings = Backbone.Collection.extend({
 	_searchD: function(collection, start_date, end_date) {
 		return _(collection.filter(function(model){
 			var overlap = false;
-			for(var i = 0; i < model.reservations.length; i++){
-				var start = new Date(model.reservations[i][0] + " PST");
-				var end = new Date(model.reservations[i][1] + " PST");
+			for(var i = 0; i < model.reservations().length; i++){
+				var start = new Date(model.reservations().models[i].get(0) + " PST");
+				var end = new Date(model.reservations().models[i].get(1) + " PST");
 				var resStart = new Date(start_date + " PST");
 				var resEnd = new Date(end_date + " PST");
 				if((resStart >= start && resStart <= end) ||
