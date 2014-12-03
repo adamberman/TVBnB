@@ -16,6 +16,7 @@
 //= require jquery.slick
 //= require jquery.cookie.js
 //= require jquery.geocomplete
+//= require jquery.iframe-transport
 //= require underscore
 //= require backbone
 //= require bootstrap-sprockets
