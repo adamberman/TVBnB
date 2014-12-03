@@ -18,6 +18,7 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 	newListing: function(){
 		var view = new TVBnB.Views.NewMain();
 		this._swapView(view);
+		$('#new-listing-address').geocomplete();
 	},
 
 	show: function(id){
