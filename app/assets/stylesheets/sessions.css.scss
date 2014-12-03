@@ -6,7 +6,12 @@
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	width: 600px;
+	height: 400px;
+	background: rgba(0, 0, 0, .9);
+	color: white;
 }
+
 .row {
 	display: block;
 	text-align: center;
@@ -24,4 +29,10 @@ ul.errors {
 li.errors {
 	text-align: left;
 	color: red;
+}
+
+.full-page {
+	height: 100%;
+	width: 100%;
+	background-image:url(/assets/background.png);
 }

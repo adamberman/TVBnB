@@ -1,70 +1,72 @@
-<div class="container">
-	<div class="jumbotron">
-		<h1>Welcome Home</h1>
-		<p class="lead">
-			Log In!
-		</p>
-		<%= render './layouts/errors' %>
-		<form 
-  		action="<%= session_url %>" 
-  		method="POST">
-			<input  
-    		type="hidden"
-				name="authenticity_token"
-				value="<%= form_authenticity_token %>">  
+<div class="full-page">
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Welcome Home</h1>
+			<p class="lead">
+				Log In!
+			</p>
+			<%= render './layouts/errors' %>
+			<form 
+	  		action="<%= session_url %>" 
+	  		method="POST">
+				<input  
+	    		type="hidden"
+					name="authenticity_token"
+					value="<%= form_authenticity_token %>">  
 
-			<div class="row">
-				<label 
-					for="username">
-					Username
-				</label>
+				<div class="row">
+					<label 
+						for="username">
+						Username
+					</label>
+
+					<input 
+						type="text"
+		       	name="user[username]"
+		       	id="username"
+		       	value="<%= @user.username %>">
+		    </div>
+		    <div class="row">
+					<label 
+						for="password">
+						Password
+					</label>
+
+					<input 
+						type="password"
+		       	name="user[password]"
+		       	id="password">       
+	  		</div>
+	  		<div class="row">
+					<input 
+						type="submit"
+						class="btn btn-lg btn-primary"
+		       	value="Sign In">
+		    </div>
+	  	</form>
+	  	<form 
+	  		action="<%= session_url %>" 
+	  		method="POST">
+				<input  
+	    		type="hidden"
+					name="authenticity_token"
+					value="<%= form_authenticity_token %>">  
 
 				<input 
-					type="text"
+					type="hidden"
 	       	name="user[username]"
-	       	id="username"
-	       	value="<%= @user.username %>">
-	    </div>
-	    <div class="row">
-				<label 
-					for="password">
-					Password
-				</label>
-
+	       	value="George">
+		   
 				<input 
-					type="password"
+					type="hidden"
 	       	name="user[password]"
-	       	id="password">       
-  		</div>
-  		<div class="row">
+	       	value="vandalay_industries">  
+
 				<input 
 					type="submit"
 					class="btn btn-lg btn-primary"
-	       	value="Sign In">
-	    </div>
-  	</form>
-  	<form 
-  		action="<%= session_url %>" 
-  		method="POST">
-			<input  
-    		type="hidden"
-				name="authenticity_token"
-				value="<%= form_authenticity_token %>">  
-
-			<input 
-				type="hidden"
-       	name="user[username]"
-       	value="George">
-	   
-			<input 
-				type="hidden"
-       	name="user[password]"
-       	value="vandalay_industries">  
-
-			<input 
-				type="submit"
-				class="btn btn-lg btn-primary"
-       	value="Guest Sign In">
-  	</form> 
+	       	value="Guest Sign In">
+	  	</form> 
+		</div>
 	</div>
 </div>
