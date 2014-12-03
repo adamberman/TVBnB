@@ -8,9 +8,7 @@ TVBnB.Views.NewMain = Backbone.CompositeView.extend({
 	template: JST['new/main'],
 
 	addNewListingForm: function(){
-		var form = new TVBnB.Views.NewForm({
-			this.model
-		});
+		var form = new TVBnB.Views.NewForm();
 		this.addSubview('.new-listing-form', form);
 	},
 

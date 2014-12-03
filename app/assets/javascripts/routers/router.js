@@ -16,10 +16,7 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 	},
 
 	newListing: function(){
-		var listing = new TVBnB.Models.Listing();
-		var view = new TVBnB.Views.NewMain({
-			model: listing
-		});
+		var view = new TVBnB.Views.NewMain();
 		this._swapView(view);
 	},
 
