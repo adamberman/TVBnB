@@ -54,8 +54,8 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 			success: function(){
 				that._reservations.add(newReservation);
 				that.bookSuccess();
-			}
-			failure: function(){
+			},
+			error: function(){
 				that.bookFailure();
 			}
 		})
