@@ -19,7 +19,6 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 		listing.fetch();
 		var view = new TVBnB.Views.ListingShow({model: listing});
 		this._swapView(view);
-		$('.listing-search-block').geocomplete();
 	},
 
 	search: function(){
@@ -27,6 +26,7 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 		collection.fetch();
 		var view = new TVBnB.Views.Main({collection: collection});
 		this._swapView(view);
+		$('.listing-search-block').geocomplete();
 	},
 	_swapView: function(newView){
 		if(this._currentView){
