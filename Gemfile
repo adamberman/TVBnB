@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'newrelic_rpm'
 gem 'geocoder'
 gem 'jquery-slick-rails'
+gem 'filepicker-rails'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :development do
