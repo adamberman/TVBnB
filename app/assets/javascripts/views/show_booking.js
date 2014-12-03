@@ -86,7 +86,7 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 						}
 					});
 					if(validDay){
-						return [true, "", ""];
+						return [true, "", "Available"];
 					} else {
 						return [false, "", "Booked"];
 					}
