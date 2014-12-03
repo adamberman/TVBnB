@@ -6,7 +6,6 @@ TVBnB.Views.NewMain = Backbone.CompositeView.extend({
 	className: "new-main",
 
 	template: JST['new/main'],
-	},
 	
 	render: function() {
 		var content = this.template();
