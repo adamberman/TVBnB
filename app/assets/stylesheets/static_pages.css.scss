@@ -523,6 +523,8 @@ div.listing-mouseover {
 .new-listing-form{
 	height: 100%;
 	background-color: #f5f5f5;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .new-listing-title-header, .new-listing-title-subheader {
@@ -564,7 +566,7 @@ form.new-listing-form-wrapper {
 }
 
 #new-listing-price {
-	width: 40%;
+	width: 60px;
 	display: inline-block;
 }
 
@@ -578,6 +580,22 @@ h4.new-listing-price-tag {
 
 #new-listing-price-amount {
 	padding-left: 10px;
+}
+
+.awesome-super-div {
+	clear: both;
+}
+
+.new-listing-button {
+	display: inline-block;
+}
+
+#price-label {
+	padding-bottom: 5px;
+}
+
+#description-label {
+	padding-bottom: 10px;
 }
 /*!
  * Datepicker for Bootstrap
