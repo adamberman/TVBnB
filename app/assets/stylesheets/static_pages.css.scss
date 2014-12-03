@@ -546,6 +546,39 @@ form.new-listing-form-wrapper {
 	padding-right: 8%;
 	text-align: right;
 }
+
+.new-listing-form-block, .block-label {
+	margin-bottom: 20px;
+}
+
+.new-listing-form-block-1-wrapper, .new-listing-form-block-2-wrapper, .new-listing-form-block-3-wrapper {
+	padding-left: 24px;
+}
+
+#new-listing-name {
+	width: 70%;
+}
+
+#new-listing-address {
+	width: 70%;
+}
+
+#new-listing-price {
+	width: 40%;
+	display: inline-block;
+}
+
+h4.new-listing-price-tag {
+	display: inline-block;
+}
+
+#new-listing-price-money {
+	padding-right: 10px;
+}
+
+#new-listing-price-amount {
+	padding-left: 10px;
+}
 /*!
  * Datepicker for Bootstrap
  *
