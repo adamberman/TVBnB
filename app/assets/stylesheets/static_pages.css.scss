@@ -469,11 +469,11 @@ div.listing-mouseover {
 	margin-bottom: 10px;
 }
 
-.booking-success-invisible {
+.booking-success-invisible, .booking-failure-invisible {
 	display: none;
 }
 
-.successful-book {
+.successful-book, .failed-book {
 	text-align: center;
 }
 

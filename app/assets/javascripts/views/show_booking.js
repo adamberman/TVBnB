@@ -55,11 +55,18 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 				that._reservations.add(newReservation);
 				that.bookSuccess();
 			}
+			failure: function(){
+				that.bookFailure();
+			}
 		})
 	},
 
 	bookSuccess: function(){
 		this.$('.booking-success').removeClass('booking-success-invisible');
+	},
+
+	bookFailure: function(){
+		this.$('.booking-failure').removeClass('booking-failure-invisible');
 	},
 
 	initDatePicker: function(){

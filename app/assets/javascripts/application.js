@@ -15,6 +15,7 @@
 //= require jquery.serializejson.min
 //= require jquery.slick
 //= require jquery.cookie.js
+//= require jquery.geocomplete
 //= require underscore
 //= require backbone
 //= require bootstrap-sprockets

@@ -29,6 +29,11 @@ TVBnB.Views.OpeningSearch = Backbone.View.extend({
 		}, 0);
 	},
 
+	// initGeocomplete: function(){
+	// 	debugger;
+	// 	this.$('.opening-search-block').geocomplete();
+	// },
+
 	checkIfComplete: function(){
 		var params = this.$el.find('form').serializeJSON().search;
 		if (params.location != "" && params.start_date != "" && params.end_date != "") {
