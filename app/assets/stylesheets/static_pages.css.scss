@@ -534,19 +534,25 @@ div.listing-mouseover {
 
 form.new-listing-form-wrapper {
 	display: inline-block;
-	width: 70%;
+	width: 330px;
 	float: left;
 	height: 100%;
-	padding-right: 10%;
+	margin-left: 10px;
+}
+
+.new-listing-form-positioning {
+	width: 450px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .new-listing-form-labels {
 	display: inline-block;
-	width: 30%;
+	width: 100px;
 	float: left;
 	height: 100%;
-	padding-right: 8%;
 	text-align: right;
+	margin-right: 10px;
 }
 
 .new-listing-form-block, .block-label {
@@ -558,11 +564,15 @@ form.new-listing-form-wrapper {
 }
 
 #new-listing-name {
-	width: 70%;
+	width: 225px;
+}
+
+#new-listing-description {
+	width: 300px;
 }
 
 #new-listing-address {
-	width: 70%;
+	width: 225px;
 }
 
 #new-listing-price {
