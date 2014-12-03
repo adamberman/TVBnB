@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   	resources :reservations, only: :create
   	resources :reviews, only: [:create, :show]
   	resources :users, only: :show
+  	resources :image, only: :create
   end
 end

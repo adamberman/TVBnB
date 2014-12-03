@@ -7,6 +7,15 @@ TVBnB.Views.NewMain = Backbone.CompositeView.extend({
 
 	template: JST['new/main'],
 
+	events {
+		'click button.new-listing': 'submitListing'
+	},
+
+	submitListing: function(event){
+		event.preventDefault();
+		$params = $('form.new-listing-form-wrapper').serializeJSON();
+	},
+
 	addNewListingForm: function(){
 		var form = new TVBnB.Views.NewForm();
 		this.addSubview('.new-listing-form', form);

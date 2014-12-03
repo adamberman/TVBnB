@@ -20,6 +20,12 @@
 			<ul class="nav navbar-nav navbar-right">
 				<% if current_user %>
 					<li>
+						<a href="http://en.wikipedia.org/wiki/George_Costanza">Hi <%= current_user.username %></a>
+					</li>
+					<li>
+						<%= image_tag current_user.gravatar_url, :class => "gravatar-img" %>
+					</li>
+					<li>
 						<%= link_to "Log Out", session_url, method: :delete%>
 					</li>
 				<% else %>
