@@ -590,12 +590,16 @@ h4.new-listing-price-tag {
 	display: inline-block;
 }
 
-#price-label {
-	padding-bottom: 5px;
+#name-label {
+	padding-bottom: 7px;
 }
 
 #description-label {
 	padding-bottom: 10px;
+}
+
+#address-label {
+	padding-bottom: 4px;
 }
 /*!
  * Datepicker for Bootstrap
