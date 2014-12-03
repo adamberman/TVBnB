@@ -1,6 +1,6 @@
 TVBnB.Views.NewForm = Backbone.View.extend({
 
-	className: "new-main",
+	className: "new-form",
 
 	template: JST['new/form'],
 
