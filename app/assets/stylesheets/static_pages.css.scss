@@ -530,6 +530,22 @@ div.listing-mouseover {
 	color: #565a5c;
 }
 
+form.new-listing-form-wrapper {
+	display: inline-block;
+	width: 70%;
+	float: left;
+	height: 100%;
+	padding-right: 10%;
+}
+
+.new-listing-form-labels {
+	display: inline-block;
+	width: 30%;
+	float: left;
+	height: 100%;
+	padding-right: 8%;
+	text-align: right;
+}
 /*!
  * Datepicker for Bootstrap
  *
