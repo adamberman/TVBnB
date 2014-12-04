@@ -20,6 +20,7 @@ gem 'jquery-slick-rails'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '~> 1.5.7'
 gem 'figaro'
+gem 'newrelic_rpm'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :development do
@@ -29,10 +30,4 @@ group :development do
   gem 'pry-rails'
   gem 'byebug'
   gem 'spring'
-
-  gem 'net-http-spy'
-end
-
-group :production do
-	gem 'newrelic_rpm'
 end
