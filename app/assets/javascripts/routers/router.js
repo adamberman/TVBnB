@@ -6,7 +6,8 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 		"": "opening",
 		"search": "search",
 		"listings/new": "newListing",
-		"listings/:id": "show"
+		"listings/:id": "show",
+		"listings/:id/new-images": "newImages"
 	},
 
 	opening: function(){
@@ -35,6 +36,14 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 		this._swapView(view);
 		$('.listing-search-block').geocomplete();
 	},
+
+	newImages: function(id){
+		var listing = new TVBnB.Models.Listing({id: id});
+		listing.fetch();
+		var view = new TVBnB.Views.NewImages({model: listing});
+		this._swapView(view);
+	},
+
 	_swapView: function(newView){
 		if(this._currentView){
 			this._currentView.remove();
