@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-	validates :url, :listing, presence: true
+	validates :listing, presence: true
 	belongs_to :listing
 
 	has_attached_file :img, :styles => { :medium => "300x300>", :thumb => "100x100>" }

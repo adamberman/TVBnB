@@ -11,7 +11,7 @@ json.extract!(
 )
 urls = []
 listing.images.each do |image| 
-	urls.push(image.url)
+	urls.push(image.img)
 end
 json.urls urls
 
