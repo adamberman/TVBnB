@@ -1,6 +1,6 @@
 <div class="opening-carousel-wrapper">
 	<div class="carousel">
-		<% openingImages = ['/assets/mad_men.jpg', '/assets/breaking_bad.jpg', '/assets/seinfeld_main.jpg'] %>
+		<% openingImages = ['https://s3-us-west-1.amazonaws.com/tvbnb/mad_men.jpg', 'https://s3-us-west-1.amazonaws.com/tvbnb/breaking_bad.jpg', 'https://s3-us-west-1.amazonaws.com/tvbnb/seinfeld_main.jpg'] %>
 		<% for(var i = 0; i < openingImages.length; i++){ %>
 				<div class="opening-carousel-img-wrapper"><img class="opening-carousel-img" src="<%= openingImages[i] %>"></div>
 		<% } %>
