@@ -9,7 +9,7 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 
 	addListing: function(listing){
 		var subview = new TVBnB.Views.ListingsItem({
-			model: listing 
+			model: listing,
 		});
 		this.children.push(subview);
 		this.addSubview('.listings-container', subview);

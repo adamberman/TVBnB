@@ -37,6 +37,11 @@ GEM
     arel (5.0.1.20140414130214)
     autoprefixer-rails (4.0.1)
       execjs
+    aws-sdk (1.5.8)
+      httparty (~> 0.7)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     backbone-on-rails (1.1.1.0)
       actionmailer
       actionpack
@@ -87,6 +92,9 @@ GEM
       railties (>= 3.2, < 5.0)
     geocoder (1.2.6)
     hike (1.2.3)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     jbuilder (2.2.5)
       activesupport (>= 3.0.0, < 5)
@@ -104,9 +112,13 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.3)
+    mini_portile (0.6.1)
     minitest (5.4.3)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     newrelic_rpm (3.9.7.266)
+    nokogiri (1.6.5)
+      mini_portile (~> 0.6.0)
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -172,6 +184,7 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uuidtools (2.1.5)
 
 PLATFORMS
   ruby
@@ -179,6 +192,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   autoprefixer-rails
+  aws-sdk (~> 1.5.7)
   backbone-on-rails
   bcrypt
   better_errors

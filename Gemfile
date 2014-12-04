@@ -19,6 +19,7 @@ gem 'newrelic_rpm'
 gem 'geocoder'
 gem 'jquery-slick-rails'
 gem 'paperclip', '~> 4.2'
+gem 'aws-sdk', '~> 1.5.7'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :development do
