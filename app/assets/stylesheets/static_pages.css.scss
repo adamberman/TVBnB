@@ -637,6 +637,21 @@ h4.new-listing-price-tag {
 .visible {
 	display: visible;
 }
+
+#show-map-canvas {
+	min-height: 200px;
+	height: 100%;
+	float: right;
+	display: inline-block;
+	width: 29%;
+	margin-right: 13%;
+	margin-top: 20px;
+}
+
+.listing-address > .listing-description{
+	text-align: center;
+	margin-top: 10px;
+}
 /*!
  * Datepicker for Bootstrap
  *
