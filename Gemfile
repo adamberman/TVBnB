@@ -15,7 +15,6 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'newrelic_rpm'
 gem 'geocoder'
 gem 'jquery-slick-rails'
 gem 'paperclip', '~> 4.2'
@@ -30,4 +29,10 @@ group :development do
   gem 'pry-rails'
   gem 'byebug'
   gem 'spring'
+
+  gem 'net-http-spy'
+end
+
+group :production do
+	gem 'newrelic_rpm'
 end

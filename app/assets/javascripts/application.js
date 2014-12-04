@@ -18,6 +18,8 @@
 //= require jquery.geocomplete
 //= require jquery.iframe-transport
 //= require jquery.nouislider.all.min
+//= require jquery.validate.min
+//= require additional-methods.min
 //= require underscore
 //= require backbone
 //= require bootstrap-sprockets

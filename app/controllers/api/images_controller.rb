@@ -2,8 +2,7 @@ module Api
 	class ImagesController < ApplicationController
 		def create
 			@image = current_listing.images.new(image_params)
-			@image.img = params[:file]
-
+			# @image.img = params[:file]
 			if @image.save
 				flash.now[:success] = ["Image Uploaded Successfully!"]
 				render json: @image
@@ -21,7 +20,7 @@ module Api
 		end
 
 		def image_params
-			params.permit(:listing_id)
+			params.require(:image).permit(:listing_id, :img)
 		end
 	end
 end

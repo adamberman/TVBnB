@@ -5,7 +5,9 @@ TVBnB.Views.NewImagesForm = Backbone.View.extend({
 	},
 
 	events: {
-		'click button.new-image-button': 'submitImage'
+		'submit form': 'submitImage',
+		'change .image-input': 'handleFile',
+
 	},
 
 	className: "new-images-form",
@@ -14,25 +16,33 @@ TVBnB.Views.NewImagesForm = Backbone.View.extend({
 
 	submitImage: function(event){
 		event.preventDefault();
-		var params = {listing_id: this.model.id}
-		var image = new TVBnB.Models.Image(params);
-		var values = {};
-		var csrf_param = $('meta[name=csrf-param').attr('content');
-		var csrf_token = $('meta[name=csrf-token').attr('content');
-		var values_with_csrf;
+		var params = $(event.target).serializeJSON();
+		// var params = {listing_id: this.model.id}
+		var image = new TVBnB.Models.Image({ listing_id: this.model.id });
+		debugger
+		// var values = {};
+		// var csrf_param = $('meta[name=csrf-param').attr('content');
+		// var csrf_token = $('meta[name=csrf-token').attr('content');
+		// var values_with_csrf;
 
-		_.each(this.$('form').serializeArray(), function(input){
-			values[input.name] = input.value;
-		})
+		// _.each(this.$('form').serializeArray(), function(input){
+		// 	values[input.name] = input.value;
+		// })
 
-		values_with_csrf = _.extend({}, values);
-		values_with_csrf[csrf_param] = csrf_token;
-		values_with_csrf['listing_id'] = this.model.id;
+		// values_with_csrf = _.extend({}, values);
+		// values_with_csrf[csrf_param] = csrf_token;
+		// values_with_csrf['listing_id'] = this.model.id;
 
-		image.save({}, {
-			iframe: true,
-			files: this.$('form :file'),
-			data: values_with_csrf
+		image.save(params, {
+			// iframe: true,
+			// files: this.$('form :file'),
+			// data: values_with_csrf
+			success: function(){
+				alert('success');
+			},
+			error: function(){
+				alert('failure');
+			}
 		});
 
 		this.listenTo(image, 'sync', this.render);
@@ -40,6 +50,19 @@ TVBnB.Views.NewImagesForm = Backbone.View.extend({
 
 		this.addProgress()
 	},
+
+	handleFile: function(event) {
+    var input = event.target;
+    var file = input.files[0]
+
+    var reader = new FileReader();
+    var that = this;
+    reader.onload = function(event) {
+      that.$('#put-image-here').val(this.result)
+    };
+
+    return reader.readAsDataURL(file)
+  },
 
 	addProgress: function(){
 		this.$('.new-image-button').removeClass('visible');

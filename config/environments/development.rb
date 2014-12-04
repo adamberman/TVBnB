@@ -1,5 +1,19 @@
 Rails.application.configure do
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'tvbnb',
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
+
+      :s3_host_name => 's3-us-west-1.amazonaws.com' # or whatever your region host name is
+    },
+
+    :s3_host_name => 's3-us-west-1.amazonaws.com' # or whatever your region host name is
+  }
   # Settings specified here will take precedence over those in config/application.rb.
+  Net::HTTP.http_logger_options = {:verbose => true}
+
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -31,15 +45,6 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-
-  Paperclip.options[:command_path] = "/opt/local/bin/convert"
-
-  config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => 'tvbnb'
-  }
-}
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
