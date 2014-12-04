@@ -23,7 +23,9 @@
 						<a href="http://en.wikipedia.org/wiki/George_Costanza">Hi <%= current_user.username %></a>
 					</li>
 					<li>
-						<%= image_tag current_user.gravatar_url, :class => "gravatar-img" %>
+						<a class="navbar-img" href="https://twitter.com/seinfeldtoday">
+							<img class="gravatar-img" href="https://twitter.com/seinfeldtoday" src="<%= current_user.gravatar_url %>">
+						</a>
 					</li>
 					<li>
 						<%= link_to "Log Out", session_url, method: :delete%>
