@@ -36,6 +36,7 @@ TVBnB.Views.NewImagesForm = Backbone.View.extend({
 		});
 
 		this.listenTo(image, 'sync', this.render);
+		this.listenTo(image, 'sync', this.fireFinished);
 
 		this.addProgress()
 	},
@@ -45,6 +46,10 @@ TVBnB.Views.NewImagesForm = Backbone.View.extend({
 		this.$('.new-image-button').addClass('invisible');
 		this.$('.load-display').removeClass('invisible');
 		this.$('.load-display').addClass('visible');
+	},
+
+	fireFinished: function(){
+		this.model.trigger('uploadSuccess');
 	},
 
 	render: function() {
