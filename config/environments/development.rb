@@ -12,7 +12,6 @@ Rails.application.configure do
     :s3_host_name => 's3-us-west-1.amazonaws.com' # or whatever your region host name is
   }
   # Settings specified here will take precedence over those in config/application.rb.
-  Net::HTTP.http_logger_options = {:verbose => true}
 
 
   # In the development environment your application's code is reloaded on
