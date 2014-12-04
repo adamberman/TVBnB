@@ -34,6 +34,17 @@ TVBnB.Views.NewImagesForm = Backbone.View.extend({
 			files: this.$('form :file'),
 			data: values_with_csrf
 		});
+
+		this.listenTo(image, 'sync', this.render);
+
+		this.addProgress()
+	},
+
+	addProgress: function(){
+		this.$('.new-image-button').removeClass('visible');
+		this.$('.new-image-button').addClass('invisible');
+		this.$('.load-display').removeClass('invisible');
+		this.$('.load-display').addClass('visible');
 	},
 
 	render: function() {
