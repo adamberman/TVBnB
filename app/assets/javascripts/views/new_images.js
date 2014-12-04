@@ -1,6 +1,6 @@
 TVBnB.Views.NewImages = Backbone.CompositeView.extend({
 	initialize: function(){
-		// this.addNewImagesForm();
+		this.addNewImagesForm();
 	},
 
 	className: "new-main",
@@ -10,10 +10,10 @@ TVBnB.Views.NewImages = Backbone.CompositeView.extend({
 	events: {
 	},
 
-	// addNewImagesForm: function(){
-	// 	var form = new TVBnB.Views.NewImagesForm();
-	// 	this.addSubview('.new-images-form', form);
-	// },
+	addNewImagesForm: function(){
+		var form = new TVBnB.Views.NewImagesForm();
+		this.addSubview('.new-images-form', form);
+	},
 
 	render: function() {
 		var content = this.template();
