@@ -7,13 +7,30 @@ TVBnB.Views.NewMain = Backbone.CompositeView.extend({
 
 	template: JST['new/main'],
 
-	events {
-		'click button.new-listing': 'submitListing'
+	events: {
+		'click .new-listing-button': 'submitListing'
 	},
 
 	submitListing: function(event){
 		event.preventDefault();
-		$params = $('form.new-listing-form-wrapper').serializeJSON();
+		formValues = this.$('form.new-listing-form-wrapper').serializeJSON().listing;
+		var params = {
+			name: formValues.name,
+			description: formValues.description,
+			address: formValues.address,
+			price: formValues.price
+		};
+		var newListing = new TVBnB.Models.Listing(params);
+		var that = this;
+		newListing.save({}, {
+			success: function(response){
+				var id = response.get('id');
+				Backbone.history.navigate('listings/' + id + '/new-images', { trigger: true });
+			},
+			error: function(){
+				alert('nope');
+			}
+		})
 	},
 
 	addNewListingForm: function(){
