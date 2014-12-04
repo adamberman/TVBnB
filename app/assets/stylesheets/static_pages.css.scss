@@ -398,6 +398,15 @@ div.listing-mouseover {
 	display: inline-block;
 }
 
+.name-and-image-container {
+	float: left;
+}
+
+.title-container {
+	width: 75%;
+	float: left;
+}
+
 .booking {
 	width: 29%;
 	margin-right: 12%;
@@ -485,6 +494,10 @@ div.listing-mouseover {
 	color: #82888a;
 }
 
+.review-user-info {
+	text-align: left;
+}
+
 .review-info-content, .review-info-date {
 	margin-bottom: 15px;
 	text-align: left;
@@ -507,6 +520,7 @@ div.listing-mouseover {
 	width: 100%;
 	overflow: auto;
 	margin-bottom: 20px;
+	margin-top: 40px;
 	border-bottom: 1px solid #dce0e0;
 }
 

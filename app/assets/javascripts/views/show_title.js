@@ -8,7 +8,7 @@ TVBnB.Views.ShowTitle = Backbone.View.extend({
 
 	template: JST['show/title'],
 
-	className: "title-container",
+	className: "title-container-wrapper",
 
 	render: function(){
 		var content = this.template({

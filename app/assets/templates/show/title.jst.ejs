@@ -1,3 +1,10 @@
-<h1><%= listing.escape('name') %></h1>
-<h4><%= user.escape('username') %></h4>
-<img src="<%= user.escape('gravatar_url') %>">
+<div class="name-and-image-container">
+	<img class="gravatar-img" src="<%= user.escape('gravatar_url') %>">
+	<p class="review-user-info"><%= user.escape('username') %></p>
+</div>
+<div class="title-container">
+	<h1><%= listing.escape('name') %></h1>
+</div>
+<div class="awesome-super-div"></div>
+
+
