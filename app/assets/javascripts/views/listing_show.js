@@ -3,6 +3,7 @@ TVBnB.Views.ListingShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model, 'sync', this.addCarousel);
 		this.listenTo(this.model, 'sync', this.addInformation);
 		this.listenTo(this.model, 'sync', this.addBooking);
+		this.listenTo(this.model, 'sync', this.addMap);
 		this.listenTo(this.model, 'sync', this.render);
 	},
 
@@ -38,6 +39,13 @@ TVBnB.Views.ListingShow = Backbone.CompositeView.extend({
 			model: this.model
 		});
 		this.addSubview(".booking", booking);
+	},
+
+	addMap: function(){
+		var map = new TVBnB.Views.ListingShowMap({
+			model: this.model
+		});
+		this.addSubview(".map", map);
 	},
 
 	render: function(){
