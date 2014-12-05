@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.effect-shake
+//= require jquery.ui.effect.all
 //= require jquery.serializejson.min
 //= require jquery.slick
 //= require jquery.cookie.js
