@@ -22,8 +22,8 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 	},
 
 	goToShowPage: function(){
-		$('.active-carousel').toggle('explode');
-		setTimeout(Backbone.history.navigate('listings/' + this.model.id, { trigger: true }), 500);
+		$('.active-carousel').hide('explode', { pieces: 9 }, 500);
+		Backbone.history.navigate('listings/' + this.model.id, { trigger: true }), 500);
 	},
 
 	next: function(){
