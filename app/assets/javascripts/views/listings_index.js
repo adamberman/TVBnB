@@ -53,6 +53,7 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 	renderListingsSource: function(){
 		this._listingsSource.each(this.addListing.bind(this));
 		this.render();
+		$('.listings-container').effect('shake', {times: 3, distance: 5}, 1000);
 	},
 
 	className: 'search-results panel-body',
