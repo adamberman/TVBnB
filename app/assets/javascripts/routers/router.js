@@ -5,6 +5,7 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 	routes: {
 		"": "opening",
 		"search": "search",
+		"bounce": "bounce",
 		"listings/new": "newListing",
 		"listings/:id": "show",
 		"listings/:id/new-images": "newImages"
@@ -41,6 +42,11 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 		var listing = new TVBnB.Models.Listing({id: id});
 		listing.fetch();
 		var view = new TVBnB.Views.NewImages({model: listing});
+		this._swapView(view);
+	},
+
+	bounce: function(){
+		var view = new TVBnB.Views.Bounce();
 		this._swapView(view);
 	},
 
