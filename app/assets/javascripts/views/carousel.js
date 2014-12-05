@@ -23,7 +23,7 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 
 	goToShowPage: function(){
 		$('.active-carousel').hide('explode', { pieces: 9 }, 500);
-		Backbone.history.navigate('listings/' + this.model.id, { trigger: true }), 500);
+		setTimeout(Backbone.history.navigate('listings/' + this.model.id, { trigger: true }), 500);
 	},
 
 	next: function(){
@@ -64,25 +64,3 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 		return this;
 	}
 })
-
-
-	// template: JST['index/carousel'],
-
-	// initCarousel: function(){
-	// 	this.$('.item-carousel').slick({
-	// 		dots: true,
-	// 		infinite: true,
-	// 		speed: 500,
-	// 		slidesToShow: 1,
-	// 		slidesToScroll: 1
-	// 	});
-	// },
-
-	// render: function(){
-	// 	var content = this.template({
-	// 		listing: this.model
-	// 	});
-	// 	this.$el.html(content);
-	// 	this.initCarousel();
-	// 	return this;
-	// }
