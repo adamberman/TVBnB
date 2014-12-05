@@ -6,9 +6,24 @@ TVBnB.Views.ShowTitle = Backbone.View.extend({
 		this.listenTo(this.user, 'sync', this.render)
 	},
 
+	events: {
+		'click .user-gravatar-img-explode': 'funTransition'
+	},
+
 	template: JST['show/title'],
 
 	className: "title-container-wrapper",
+
+	funTransition: function(){
+		$('.user-gravatar-img-explode').effect({
+			effect: 'explode',
+			complete: this.funTransitionBack
+		}).bind(this)
+	},
+
+	funTransitionBack: function(){
+		$('.user-gravatar-img-explode').toggle('explode');
+	},
 
 	render: function(){
 		var content = this.template({
