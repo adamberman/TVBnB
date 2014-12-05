@@ -14,10 +14,12 @@ TVBnB.Views.OpeningSearch = Backbone.View.extend({
 		setTimeout(function(){
 			that.$startDate = $('#start').datepicker({
 				startDate: new Date(),
+				format: 'mm/dd/yyyy',
 				autoclose: true
 			});
 			that.$endDate = $('#end').datepicker({
 				startDate: new Date(),
+				format: 'mm/dd/yyyy',
 				autoclose: true
 			});
 			that.$startDate.on('changeDate', function(){

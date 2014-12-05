@@ -74,6 +74,7 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 		setTimeout(function(){
 			that.$startDate = $('#start').datepicker({
 				startDate: new Date(),
+				format: 'mm/dd/yyyy',
 				autoclose: true,
 				beforeShowDay: function(d){
 					var reservations = that.model.reservations().models;
@@ -89,6 +90,7 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 			});
 			that.$endDate = $('#end').datepicker({
 				startDate: new Date(),
+				format: 'mm/dd/yyyy',
 				autoclose: true,
 				beforeShowDay: function(d){
 					var reservations = that.model.reservations().models;

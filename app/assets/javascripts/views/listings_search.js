@@ -42,10 +42,12 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 		setTimeout(function(){
 			that.$startDate = $('#start').datepicker({
 				startDate: new Date(),
+				format: 'mm/dd/yyyy',
 				autoclose: true
 			});
 			that.$endDate = $('#end').datepicker({
 				startDate: new Date(),
+				format: 'mm/dd/yyyy',
 				autoclose: true
 			});
 			if(that.start_date){
