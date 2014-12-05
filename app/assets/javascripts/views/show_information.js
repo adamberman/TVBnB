@@ -1,4 +1,5 @@
 TVBnB.Views.ShowInformation = Backbone.CompositeView.extend({
+	
 	initialize: function(){
 		this.addTitle();
 		this.addDescription();

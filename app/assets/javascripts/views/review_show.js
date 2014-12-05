@@ -1,4 +1,5 @@
 TVBnB.Views.ReviewShow = Backbone.View.extend({
+	
 	initialize: function(){
 		this.user = new TVBnB.Models.User({id: this.model.escape('user_id')});
 		this.user.fetch();

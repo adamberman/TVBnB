@@ -1,4 +1,5 @@
 TVBnB.Views.ShowDescription = Backbone.View.extend({
+	
 	template: JST['show/description'],
 
 	className: "description-container",

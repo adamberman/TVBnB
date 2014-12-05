@@ -6,8 +6,7 @@ TVBnB.Views.NewImagesForm = Backbone.View.extend({
 
 	events: {
 		'submit form': 'submitImage',
-		'change .image-input': 'handleFile',
-
+		'change .image-input': 'handleFile'
 	},
 
 	className: "new-images-form",

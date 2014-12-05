@@ -3,11 +3,19 @@
     <% for(var i = 0; i < urls.length; i++){ %>
         <div class="item-carousel-img-wrapper">
         	<div class="carousel-img-link-wrapper">
-        		<img class="item-carousel-img <%= i === 0 ? 'active-carousel' : 'inactive-carousel' %>" src="<%= urls[i] %>">
+        		<img 
+              class="item-carousel-img <%= i === 0 ? 'active-carousel' : 'inactive-carousel' %>" 
+              src="<%= urls[i] %>">
         	</div>
         </div>
     <% } %>
   </div>
-  <button type="button" class="slick-prev slide-left"></button>
-  <button type="button" class="slick-next slide-right"></button>
+  <button 
+    type="button" 
+    class="slick-prev slide-left">
+  </button>
+  <button 
+    type="button" 
+    class="slick-next slide-right">
+  </button>
 </div>

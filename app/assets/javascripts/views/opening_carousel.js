@@ -1,4 +1,5 @@
 TVBnB.Views.OpeningCarousel = Backbone.View.extend({
+	
 	template: JST['opening/carousel'],
 
 	initCarousel: function(){

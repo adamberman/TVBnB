@@ -1,16 +1,17 @@
 TVBnB.Views.Google = Backbone.View.extend({
-	initialize: function(){
+
+	initialize: function () {
 		this.geocoder = new google.maps.Geocoder();
 		this.location = 'san francisco, ca';
 		this.start_date = "";
 		this.end_date = "";
-		if($.cookie('location')){
+		if ($.cookie('location')) {
 			this.location = $.cookie('location');
 		}
-		if($.cookie('start_date')){
+		if ($.cookie('start_date')) {
 			this.start_date = $.cookie('start_date');
 		}
-		if($.cookie('end_date')){
+		if ($.cookie('end_date')) {
 			this.end_date = $.cookie('end_date');
 		}
 		this.ensureStartAndEndDate();
@@ -27,45 +28,45 @@ TVBnB.Views.Google = Backbone.View.extend({
 
 	tagName: "google-view",
 
-	createMap: function(){
+	createMap: function () {
 		this.map = new google.maps.Map(this.$("#map-canvas")[0], this.mapOptions);
 		google.maps.event.addListener(this.map, 'idle', this.setSearch.bind(this));
 	},
 
-	handleBounceCall: function(action){
+	handleBounceCall: function (action) {
 		var marker = this.markers[action.id];
-		if(action.action == 'begin'){
+		if (action.action == 'begin') {
 			marker.setAnimation(google.maps.Animation.BOUNCE);
 		}
-		if(action.action == 'end'){
+		if (action.action == 'end') {
 			marker.setAnimation(null);
 		}
 	},
 
-	ensureStartAndEndDate: function(){
-		if(this.start_date == "" || this.end_date == ""){
+	ensureStartAndEndDate: function () {
+		if (this.start_date == "" || this.end_date == "") {
 			this.start_date = new Date();
 			this.end_date = new Date();
 		}
 	},
 
-	changeParams: function(params){
+	changeParams: function (params) {
 		this.start_date = params.start_date;
 		this.end_date = params.end_date;
 		this.min_price = params.min_price;
 		this.max_price = params.max_price;
 	},
 
-	codeAddress: function(){
+	codeAddress: function () {
 		var that = this;
-		this.geocoder.geocode( {'address': this.location}, function(results, status){
-			if(status == google.maps.GeocoderStatus.OK) {
+		this.geocoder.geocode( { 'address': this.location }, function (results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
 				that.latLng = results[0].geometry.location;
 				that.mapOptions = {
 					center: that.latLng,
 					zoom: 12
 				};
-				if(that.map){
+				if (that.map) {
 					that.map.setCenter(that.latLng);
 					that.setSearch();
 				} else {
@@ -77,7 +78,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		});
 	},
 
-	changeLocation: function(params){
+	changeLocation: function (params) {
 		this.location = params.location;
 		this.start_date = params.start_date;
 		this.end_date = params.end_date;
@@ -86,7 +87,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.codeAddress();
 	},
 
-	setSearch: function(){
+	setSearch: function () {
 		this.southWest = this.map.getBounds().getSouthWest();
 		this.northEast = this.map.getBounds().getNorthEast();
 		var boundaries = {
@@ -106,7 +107,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.collection.trigger("newSearch", options);
 	},
 
-	addListing: function(listing){
+	addListing: function (listing) {
 		var listingId = listing.id;
 		var latitude = listing.get('latitude');
 		var longitude = listing.get('longitude');
@@ -121,18 +122,18 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.markers[listingId] = marker;
 	},
 
-	removeListing: function(listing){
+	removeListing: function (listing) {
 		var marker = this.markers[listing.id];
 		marker.setMap(null);
 		delete this.markers[listing.id];
 	},
 
-	addAllListings: function(subCollection){
+	addAllListings: function (subCollection) {
 		this.deleteAllListings();
 		subCollection.each(this.addListing.bind(this));
 	},
 
-	deleteAllListings: function(){
+	deleteAllListings: function () {
 		var that = this;
 		this.listings.forEach(function(listing){
 			that.removeListing(listing)
@@ -140,7 +141,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.listings = [];
 	},
 
-	render: function(){
+	render: function () {
 		var content = this.template();
 		this.$el.html(content);
 		return this;

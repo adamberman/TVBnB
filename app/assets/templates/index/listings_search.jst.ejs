@@ -3,8 +3,17 @@
 		<label>Location</label>
 	</div>
 	<div class="col-xs-9 location-search-container">
-		<input type="text" placeholder="try new york city" class="listing-search-block input-sm form-control" name="search[location]" value="<%= location %>">
-		<button class="btn btn-danger opening-button" id="search-submit">Search</button>
+		<input 
+			type="text" 
+			placeholder="try new york city" 
+			class="listing-search-block input-sm form-control" 
+			name="search[location]" 
+			value="<%= location %>">
+		<button 
+			class="btn btn-danger opening-button" 
+			id="search-submit">
+			Search
+		</button>
 	</div>
 </div>
 <form>
@@ -12,10 +21,22 @@
 		<div class="col-xs-3">
 			<label>Dates</label>
 		</div>
-		<div class="input-daterange input-group col-xs-9" id="datepicker">
-	    <input type="text" id="start" class="input-sm form-control" placeholder="Start Date" name="date[start]" />
+		<div 
+			class="input-daterange input-group col-xs-9" 
+			id="datepicker">
+	    <input 
+	    	type="text" 
+	    	id="start" 
+	    	class="input-sm form-control" 
+	    	placeholder="Start Date" 
+	    	name="date[start]" />
 	    <span class="input-group-addon">to</span>
-	    <input type="text" id="end" class="input-sm form-control" placeholder="End Date" name="date[end]" />
+	    <input 
+	    	type="text" 
+	    	id="end" 
+	    	class="input-sm form-control" 
+	    	placeholder="End Date" 
+	    	name="date[end]" />
 		</div>
 	</div>
 	<div class="price-container">

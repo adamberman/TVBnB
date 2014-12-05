@@ -1,13 +1,16 @@
 TVBnB.Collections.Listings = Backbone.Collection.extend({
+
 	model: TVBnB.Models.Listing,
+
 	url: "/api/listings",
-	getOrFetch: function(id){
+
+	getOrFetch: function (id) {
 		var listing = this.get(id)
 		var listings = this;
 		if (!listing) {
-			listing = new TVBnB.Models.Listing({id: id});
+			listing = new TVBnB.Models.Listing({ id: id });
 			listing.fetch({
-				success: function(){
+				success: function () {
 					listings.add(listing);
 				}
 			});
@@ -16,13 +19,14 @@ TVBnB.Collections.Listings = Backbone.Collection.extend({
 		}
 		return listing;
 	},
-	search: function(boundaries, min_price, max_price, start_date, end_date){
+
+	search: function (boundaries, min_price, max_price, start_date, end_date) {
 		var collection = this._searchBP(boundaries, min_price, max_price)
 		return this._searchD(collection, start_date, end_date);
 	},
 
-	_searchBP: function(boundaries, min_price, max_price) {
-		return _(this.filter(function(model){
+	_searchBP: function (boundaries, min_price, max_price) {
+		return _(this.filter(function(model) {
 			return model.get('latitude') < boundaries.north &&
 				model.get('latitude') > boundaries.south &&
 				model.get('longitude') < boundaries.east &&

@@ -1,5 +1,6 @@
 TVBnB.Views.Carousel = Backbone.View.extend({
-	initialize: function(){
+
+	initialize: function () {
 		this.urls = this.model.get('urls');
 		this.activeIndex = 0;
 	},
@@ -12,24 +13,24 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 
 	template: JST['index/carousel'],
 
-	activate: function(){
+	activate: function () {
 		this.$active = this.$divItems.eq(this.activeIndex);
 		this.$active.addClass('active-carousel');
 	},
 
-	deactivate: function(){
+	deactivate: function () {
 		this.$active.removeClass('active-carousel');
 	},
 
-	goToShowPage: function(){
+	goToShowPage: function () {
 		Backbone.history.navigate('listings/' + this.model.id, { trigger: true });
 	},
 
-	next: function(){
+	next: function () {
 		this.$active = this.$divItems.eq(this.activeIndex);
 		this.$active.removeClass('active-carousel');
 		this.$active.addClass('inactive-carousel');
-		if(this.activeIndex + 1 >= this.$divItems.length) {
+		if (this.activeIndex + 1 >= this.$divItems.length) {
 			this.activeIndex = 0;
 		} else {
 			this.activeIndex ++;
@@ -39,11 +40,11 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 		this.$next.addClass('active-carousel');
 	},
 
-	back: function(){
+	back: function () {
 		this.$active = this.$divItems.eq(this.activeIndex);
 		this.$active.removeClass('active-carousel');
 		this.$active.addClass('inactive-carousel');
-		if(this.activeIndex - 1 < 0){
+		if (this.activeIndex - 1 < 0) {
 			this.activeIndex = this.$divItems.length - 1;
 		} else {
 			this.activeIndex --;
@@ -53,7 +54,7 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 		this.$next.addClass('active-carousel');
 	},
 
-	render: function(){
+	render: function () {
 		var content = this.template({
 			id: this.model.id,
 			urls: this.urls

@@ -1,4 +1,5 @@
 TVBnB.Views.ShowBooking = Backbone.View.extend({
+	
 	initialize: function(){
 		if($.cookie('start_date')){
 			this.start_date = $.cookie('start_date');

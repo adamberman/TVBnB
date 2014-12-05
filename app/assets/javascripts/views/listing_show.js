@@ -1,5 +1,6 @@
 TVBnB.Views.ListingShow = Backbone.CompositeView.extend({
-	initialize: function(){
+
+	initialize: function () {
 		this.listenTo(this.model, 'sync', this.addCarousel);
 		this.listenTo(this.model, 'sync', this.addInformation);
 		this.listenTo(this.model, 'sync', this.addBooking);
@@ -15,40 +16,40 @@ TVBnB.Views.ListingShow = Backbone.CompositeView.extend({
 		"click": "removeMessage"
 	},
 
-	removeMessage: function(){
+	removeMessage: function () {
 		this.$('.booking-success').addClass('booking-success-invisible');
 		this.$('.booking-failure').addClass('booking-failure-invisible');
 	},
 
-	addCarousel: function(){
+	addCarousel: function () {
 		var carousel = new TVBnB.Views.ShowCarousel({
 			model: this.model
 		});
 		this.addSubview(".large-carousel", carousel);
 	},
 
-	addInformation: function(){
+	addInformation: function () {
 		var information = new TVBnB.Views.ShowInformation({
 			model: this.model
 		});
 		this.addSubview(".information", information);
 	},
 
-	addBooking: function(){
+	addBooking: function () {
 		var booking = new TVBnB.Views.ShowBooking({
 			model: this.model
 		});
 		this.addSubview(".booking", booking);
 	},
 
-	addMap: function(){
+	addMap: function () {
 		var map = new TVBnB.Views.ListingShowMap({
 			model: this.model
 		});
 		this.addSubview(".map", map);
 	},
 
-	render: function(){
+	render: function () {
 		var content = this.template();
 		this.$el.html(content);
 		this.attachSubviews();

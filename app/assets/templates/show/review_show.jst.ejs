@@ -1,9 +1,17 @@
 <div class="review-user">
-	<img class="gravatar-img" src="<%= user.escape('gravatar_url') %>">
-	<p class="review-user-info"><%= user.escape('username') %></p>
+	<img 
+		class="gravatar-img" 
+		src="<%= user.escape('gravatar_url') %>">
+	<p class="review-user-info">
+		<%= user.escape('username') %>
+	</p>
 </div>
 <div class="review-info">
-	<p class="review-info-content"><%= review.escape('content') %></p>
+	<p class="review-info-content">
+		<%= review.escape('content') %>
+	</p>
 	<% var date = new Date(review.escape('created_at')) %>
-	<p class="review-info-date"><%= date.getMonth() %>/<%= date.getDate() %>/<%= date.getFullYear() %></p>
+	<p class="review-info-date">
+		<%= date.getMonth() %>/<%= date.getDate() %>/<%= date.getFullYear() %>
+	</p>
 </div>

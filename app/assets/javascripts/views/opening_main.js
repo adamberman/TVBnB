@@ -8,10 +8,6 @@ TVBnB.Views.OpeningMain = Backbone.CompositeView.extend({
 
 	className: 'opening-main',
 
-	events: {
-		
-	},
-
 	addCarousel: function(){
 		var carousel = new TVBnB.Views.OpeningCarousel();
 		this.addSubview('.opening-carousel', carousel);

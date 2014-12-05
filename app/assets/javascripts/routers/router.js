@@ -1,7 +1,9 @@
 TVBnB.Routers.Router = Backbone.Router.extend({
-	initialize: function(options){
+
+	initialize: function (options) {
 		this.$rootEl = options.$rootEl;
 	},
+
 	routes: {
 		"": "opening",
 		"search": "search",
@@ -11,46 +13,46 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 		"listings/:id/new-images": "newImages"
 	},
 
-	opening: function(){
+	opening: function () {
 		var view = new TVBnB.Views.OpeningMain();
 		this._swapView(view);
 		$('.opening-search-block').geocomplete();
 	},
 
-	newListing: function(){
+	newListing: function () {
 		var view = new TVBnB.Views.NewMain();
 		this._swapView(view);
 		$('#new-listing-address').geocomplete();
 	},
 
-	show: function(id){
-		var listing = new TVBnB.Models.Listing({id: id});
+	show: function (id) {
+		var listing = new TVBnB.Models.Listing({ id: id });
 		listing.fetch();
-		var view = new TVBnB.Views.ListingShow({model: listing});
+		var view = new TVBnB.Views.ListingShow({ model: listing });
 		this._swapView(view);
 	},
 
-	search: function(){
+	search: function () {
 		var collection = new TVBnB.Collections.Listings();
 		collection.fetch();
-		var view = new TVBnB.Views.Main({collection: collection});
+		var view = new TVBnB.Views.Main({ collection: collection });
 		this._swapView(view);
 		$('.listing-search-block').geocomplete();
 	},
 
-	newImages: function(id){
-		var listing = new TVBnB.Models.Listing({id: id});
+	newImages: function (id) {
+		var listing = new TVBnB.Models.Listing({ id: id });
 		listing.fetch();
-		var view = new TVBnB.Views.NewImages({model: listing});
+		var view = new TVBnB.Views.NewImages({ model: listing });
 		this._swapView(view);
 	},
 
-	bounce: function(){
+	bounce: function () {
 		var view = new TVBnB.Views.Bounce();
 		this._swapView(view);
 	},
 
-	_swapView: function(newView){
+	_swapView: function (newView) {
 		if(this._currentView){
 			this._currentView.remove();
 		}

@@ -1,4 +1,5 @@
 TVBnB.Views.ReviewsContainer = Backbone.CompositeView.extend({
+	
 	initialize: function(){
 		this.addReviewsIndex();
 	},

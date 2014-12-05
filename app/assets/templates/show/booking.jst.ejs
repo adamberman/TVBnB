@@ -8,17 +8,35 @@
 </div>
 <form>
 	<div class="date-container booking-date-container">
-		<div class="input-daterange input-group booking-dates" id="datepicker">
-	    <input type="text" id="start" class="input-sm form-control" placeholder="Start Date" value="<%= options.start %>" name="date[start]" />
+		<div 
+			class="input-daterange input-group booking-dates" 
+			id="datepicker">
+	    <input 
+	    	type="text" 
+	    	id="start" 
+	    	class="input-sm form-control" 
+	    	placeholder="Start Date" 
+	    	value="<%= options.start %>" 
+	    	name="date[start]" />
 	    <span class="input-group-addon">to</span>
-	    <input type="text" id="end" class="input-sm form-control" placeholder="End Date" value="<%= options.end %>" name="date[end]" />
+	    <input 
+	    	type="text" 
+	    	id="end" 
+	    	class="input-sm form-control" 
+	    	placeholder="End Date" 
+	    	value="<%= options.end %>" 
+	    	name="date[end]" />
 		</div>
 	</div>
 </form>
 <div class="price-calculator">
 </div>
 <div class="book-button">
-	<button class="btn btn-lrg, btn-primary request-to-book" disabled>Request to Book</button>
+	<button 
+		class="btn btn-lrg, btn-primary request-to-book" 
+		disabled>
+		Request to Book
+	</button>
 </div>
 <div class="booking-success booking-success-invisible">
 	<h4 class="successful-book bg-success">

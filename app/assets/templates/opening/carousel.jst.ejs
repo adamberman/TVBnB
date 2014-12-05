@@ -2,7 +2,11 @@
 	<div class="carousel">
 		<% openingImages = ['https://s3-us-west-1.amazonaws.com/tvbnb/mad_men.jpg', 'https://s3-us-west-1.amazonaws.com/tvbnb/breaking_bad.jpg', 'https://s3-us-west-1.amazonaws.com/tvbnb/seinfeld_main.jpg'] %>
 		<% for(var i = 0; i < openingImages.length; i++){ %>
-				<div class="opening-carousel-img-wrapper"><img class="opening-carousel-img" src="<%= openingImages[i] %>"></div>
+				<div class="opening-carousel-img-wrapper">
+					<img 
+						class="opening-carousel-img" 
+						src="<%= openingImages[i] %>">
+				</div>
 		<% } %>
 	</div>
 </div>

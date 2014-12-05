@@ -1,8 +1,11 @@
 TVBnB.Views.ListingShowMap = Backbone.View.extend({
 
-	initialize: function(){
+	initialize: function () {
 		this.mapOptions = {
-			center: {lat: this.model.get('latitude'), lng: this.model.get('longitude')},
+			center: {
+				lat: this.model.get('latitude'), 
+				lng: this.model.get('longitude')
+			},
 			zoom: 12
 		};
 	},
@@ -11,7 +14,7 @@ TVBnB.Views.ListingShowMap = Backbone.View.extend({
 
 	className: 'map-container',
 
-	createMap: function(){
+	createMap: function () {
 		this.map = new google.maps.Map(this.$("#show-map-canvas")[0], this.mapOptions);
 		var marker = new google.maps.Marker({
 			position: this.mapOptions.center,
@@ -19,10 +22,10 @@ TVBnB.Views.ListingShowMap = Backbone.View.extend({
 		});
 	},
 
-	render: function(){
+	render: function () {
 		var content = this.template();
 		this.$el.html(content);
-		setTimeout(function(){
+		setTimeout(function () {
 			this.createMap();
 		}.bind(this), 0);
 		return this;
