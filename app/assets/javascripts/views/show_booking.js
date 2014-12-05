@@ -23,6 +23,8 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 		var formValues = $(event.currentTarget).serializeJSON();
 		var numDays;
 		var disableButton;
+		$.cookie('start_date', formValues.date.start);
+		$.cookie('end_date', formValues.date.end);
 		if(formValues.date.start != "" && formValues.date.end != ""){
 			var numDays = (new Date(formValues.date.end) - new Date(formValues.date.start))/ (1000 * 60 * 60 * 24);
 			disableButton = false;
@@ -77,15 +79,16 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 				format: 'mm/dd/yyyy',
 				autoclose: true,
 				beforeShowDay: function(d){
+					var show = true;
 					var reservations = that.model.reservations().models;
 					reservations.forEach(function(res){
 						var start = new Date(res.get(0));
 						var end = new Date(res.get(1));
 						if((d >= start && d <= end)){
-							return false;
+							show = false;
 						}
 					});
-					return true;
+					return show;
 				}
 			});
 			that.$endDate = $('#end').datepicker({
@@ -93,15 +96,16 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 				format: 'mm/dd/yyyy',
 				autoclose: true,
 				beforeShowDay: function(d){
+					var show = true;
 					var reservations = that.model.reservations().models;
 					reservations.forEach(function(res){
 						var start = new Date(res.get(0));
 						var end = new Date(res.get(1));
 						if((d >= start && d <= end)){
-							return false;
+							show = false;
 						}
 					});
-					return true;
+					return show;
 				}
 			});
 			if(that.start_date){
