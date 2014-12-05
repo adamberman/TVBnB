@@ -11,8 +11,13 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 		var subview = new TVBnB.Views.ListingsItem({
 			model: listing,
 		});
+		this.listenTo(listing, 'mouseAction', this.handleMouseAction);
 		this.children.push(subview);
 		this.addSubview('.listings-container', subview);
+	},
+
+	handleMouseAction: function(action){
+		this.collection.trigger('bounceCall', action);
 	},
 
 	filterCollection: function(options){

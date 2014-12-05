@@ -20,6 +20,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.listenTo(this.collection, 'filter', this.addAllListings);
 		this.listenTo(this.collection, 'newLocation', this.changeLocation);
 		this.listenTo(this.collection, 'newParams', this.changeParams);
+		this.listenTo(this.collection, 'bounceCall', this.handleBounceCall);
 	},
 
 	template: JST['index/google'],
@@ -29,6 +30,16 @@ TVBnB.Views.Google = Backbone.View.extend({
 	createMap: function(){
 		this.map = new google.maps.Map(this.$("#map-canvas")[0], this.mapOptions);
 		google.maps.event.addListener(this.map, 'idle', this.setSearch.bind(this));
+	},
+
+	handleBounceCall: function(action){
+		var marker = this.markers[action.id];
+		if(action.action == 'begin'){
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+		}
+		if(action.action == 'end'){
+			marker.setAnimation(null);
+		}
 	},
 
 	ensureStartAndEndDate: function(){
