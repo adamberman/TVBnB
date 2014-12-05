@@ -34,6 +34,7 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 		}
 		var options = {start: formValues.date.start, end: formValues.date.end, numDays: numDays, price: this.model.get('price')};
 		this.updateCalculator(options);
+		$('.price-calculator').effect('shake', {times: 1, distance: 5}, 500);
 		button = this.$('button.request-to-book');
 		if(disableButton){
 			button.prop('disabled', true);
@@ -61,6 +62,7 @@ TVBnB.Views.ShowBooking = Backbone.View.extend({
 				that.bookFailure();
 			}
 		})
+		$('button.request-to-book').rotate({ animateTo: 360 })
 	},
 
 	bookSuccess: function(){

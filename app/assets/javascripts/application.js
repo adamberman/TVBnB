@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.effect-shake
 //= require jquery.serializejson.min
 //= require jquery.slick
 //= require jquery.cookie.js
@@ -19,6 +20,7 @@
 //= require jquery.iframe-transport
 //= require jquery.nouislider.all.min
 //= require jquery.validate.min
+//= require jQueryRotate
 //= require additional-methods.min
 //= require underscore
 //= require backbone

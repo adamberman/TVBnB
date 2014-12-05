@@ -3,7 +3,6 @@ module Api
 		def create
 			@reservation = current_listing.reservations.new(reservation_params)
 			@reservation.user_id = current_user.id
-			debugger
 
 			if @reservation.save
 				flash.now[:success] = ["You have successfully booked this listing!"]
