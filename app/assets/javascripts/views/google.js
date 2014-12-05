@@ -52,7 +52,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 				that.latLng = results[0].geometry.location;
 				that.mapOptions = {
 					center: that.latLng,
-					zoom: 10
+					zoom: 12
 				};
 				if(that.map){
 					that.map.setCenter(that.latLng);

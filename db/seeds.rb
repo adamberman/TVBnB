@@ -21,10 +21,3 @@ ActiveRecord::Base.transaction do
 	Listing.create!(name: "Sparkling Clean, Stylish Place", description: "If you need a well organized, prepared, and clean apartment in NYC, this 2 bedroom place will be perfect. Food provided.", user_id: 9, address: "90 Bedford St New York, NY 10014", price: 500)
 	Listing.create!(name: "Gorgeous Upper East Side Apartment", description: "New art. New view. New surroundings. This apartment is your window to the world.", user_id: 13, address: "783 Park Ave New York, NY 10021", price: 950)
 end
-
-
-t.integer  "price",       null: false
-    t.string   "address",     null: false
-    t.string   "name",        null: false
-    t.text     "description", null: false
-    t.integer  "user_id",     null: false

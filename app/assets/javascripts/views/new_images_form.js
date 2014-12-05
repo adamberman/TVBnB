@@ -37,12 +37,6 @@ TVBnB.Views.NewImagesForm = Backbone.View.extend({
 			// iframe: true,
 			// files: this.$('form :file'),
 			// data: values_with_csrf
-			success: function(){
-				alert('success');
-			},
-			error: function(){
-				alert('failure');
-			}
 		});
 
 		this.listenTo(image, 'sync', this.render);
