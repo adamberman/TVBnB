@@ -1,6 +1,5 @@
-== README
-
 TVBNnB
+======
 
 Check out the site [here](http://www.tvbnb.com).
 
@@ -39,8 +38,3 @@ Possible future additions to the site:
 * Add categories to listings (apartment, home, bed, etc), as well as "features" (dishwasher, garage, bike etc)
 
 * Since this is a site about TV, allow uses to search by genre so that, for example, they can view only comedy properties
-
-
-
-
-<tt>rake doc:app</tt>.
