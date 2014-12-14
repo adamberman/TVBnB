@@ -2,6 +2,8 @@
 
 TVBNnB
 
+Check out the site [here](http://www.tvbnb.com).
+
 This is an application modeled after AirBnB, but where the users are fictional characters from tv shows. Users can can rent out apartments from other users. When searching for an apartment, a user can search by geographic location, price, and available dates. Users can also list their own places to rent. In this version of the app, users are fictional characters from notable tv shows (Seinfeld, Mad Men, etc). The listings seeded on this app are the fictional apartments in the shows.
 
 I built this site almost completely as a one-pager, so nearly all of the functionality is written in Javascript using the Backbone Composite View pattern. Some notable features:
