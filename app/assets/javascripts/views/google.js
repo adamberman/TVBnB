@@ -1,10 +1,15 @@
 TVBnB.Views.Google = Backbone.View.extend({
 
 	initialize: function () {
+		// start geocoder
 		this.geocoder = new google.maps.Geocoder();
-		this.location = 'san francisco, ca';
+
+		// set default params if navigating directly to this view
+		this.location = 'new york, ny';
 		this.start_date = "";
 		this.end_date = "";
+
+		// check to see if search params have been set by cookies
 		if ($.cookie('location')) {
 			this.location = $.cookie('location');
 		}
@@ -14,10 +19,15 @@ TVBnB.Views.Google = Backbone.View.extend({
 		if ($.cookie('end_date')) {
 			this.end_date = $.cookie('end_date');
 		}
+
+		// ensure dates are valid
 		this.ensureStartAndEndDate();
+
+		// set up data necessary for map (geocoded address, markers, listings)
 		this.codeAddress();
 		this.markers = {}
 		this.listings = []
+
 		this.listenTo(this.collection, 'filter', this.addAllListings);
 		this.listenTo(this.collection, 'newLocation', this.changeLocation);
 		this.listenTo(this.collection, 'newParams', this.changeParams);
@@ -28,11 +38,13 @@ TVBnB.Views.Google = Backbone.View.extend({
 
 	tagName: "google-view",
 
+	// create new instance of map, listen for when user stops moving map
 	createMap: function () {
 		this.map = new google.maps.Map(this.$("#map-canvas")[0], this.mapOptions);
 		google.maps.event.addListener(this.map, 'idle', this.setSearch.bind(this));
 	},
 
+	// cause markers to bounce/stop (response from mouseover on listings index view)
 	handleBounceCall: function (action) {
 		var marker = this.markers[action.id];
 		if (action.action == 'begin') {
@@ -59,6 +71,8 @@ TVBnB.Views.Google = Backbone.View.extend({
 
 	codeAddress: function () {
 		var that = this;
+
+		// geocode address, start or set new location on map if successful
 		this.geocoder.geocode( { 'address': this.location }, function (results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
 				that.latLng = results[0].geometry.location;
@@ -87,6 +101,7 @@ TVBnB.Views.Google = Backbone.View.extend({
 		this.codeAddress();
 	},
 
+	// update and store search params, then pass them to listings index view by triggering "newSearch" event on the collection
 	setSearch: function () {
 		this.southWest = this.map.getBounds().getSouthWest();
 		this.northEast = this.map.getBounds().getNorthEast();

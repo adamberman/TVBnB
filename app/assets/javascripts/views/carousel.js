@@ -26,6 +26,7 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 		Backbone.history.navigate('listings/' + this.model.id, { trigger: true });
 	},
 
+	// control for the carousel
 	next: function () {
 		this.$active = this.$divItems.eq(this.activeIndex);
 		this.$active.removeClass('active-carousel');
@@ -40,6 +41,7 @@ TVBnB.Views.Carousel = Backbone.View.extend({
 		this.$next.addClass('active-carousel');
 	},
 
+	// control for the carousel
 	back: function () {
 		this.$active = this.$divItems.eq(this.activeIndex);
 		this.$active.removeClass('active-carousel');
