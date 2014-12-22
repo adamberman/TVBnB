@@ -52,6 +52,7 @@ TVBnB.Routers.Router = Backbone.Router.extend({
 		this._swapView(view);
 	},
 
+	// get rid of zombie views by removing all active listeners on the old view
 	_swapView: function (newView) {
 		if(this._currentView){
 			this._currentView.remove();
