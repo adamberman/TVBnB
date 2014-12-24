@@ -9,6 +9,7 @@ TVBnB.Views.OpeningSearch = Backbone.View.extend({
 		'click button': 'submit'
 	},
 
+	// create calendars, set start dates and end dates so that start must come before end, and visa versa (no time travel allowed!)
 	initDatePicker: function(){
 		var that = this;
 		setTimeout(function(){
@@ -31,6 +32,7 @@ TVBnB.Views.OpeningSearch = Backbone.View.extend({
 		}, 0);
 	},
 
+	// do not allow button to be clicked until form is complete
 	checkIfComplete: function(){
 		var params = this.$el.find('form').serializeJSON().search;
 		if (params.location != "" && params.start_date != "" && params.end_date != "") {
@@ -40,6 +42,7 @@ TVBnB.Views.OpeningSearch = Backbone.View.extend({
 		}
 	},
 
+	// store search params in cookies for use in search view, navigate to search view
 	submit: function(event){
 		event.preventDefault();
 		var params = this.$el.find('form').serializeJSON().search;

@@ -19,10 +19,12 @@ TVBnB.Views.ListingsItem = Backbone.CompositeView.extend({
 		this.addSubview('.carousel-container', carousel);
 	},
 
+	// trigger mouseAction to begin bounce when the mouse enters the listing
 	handleMouseEnter: function(){
 		this.model.trigger('mouseAction', {action: 'begin', id: this.model.id});
 	},
 
+	// trigger mouseAction to end bounce when the mouse exits the listing
 	handleMouseLeave: function(){
 		this.model.trigger('mouseAction', {action: 'end', id: this.model.id});
 	},

@@ -16,10 +16,12 @@ TVBnB.Views.ListingsIndex = Backbone.CompositeView.extend({
 		this.addSubview('.listings-container', subview);
 	},
 
+	// trigger event on mouseover to make the corresponding marker bounce on the map page
 	handleMouseAction: function (action) {
 		this.collection.trigger('bounceCall', action);
 	},
 
+	// parse params and send them to the collection for filtering
 	filterCollection: function (options) {
 		if (options.boundaries) {
 			this.boundaries = options.boundaries;

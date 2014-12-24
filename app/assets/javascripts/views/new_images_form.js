@@ -13,12 +13,13 @@ TVBnB.Views.NewImagesForm = Backbone.View.extend({
 
 	template: JST['new/images_form'],
 
+	// basic methodology for uploading an image, using paperclip library on backend, stored on AWS
+	// commented out section is methodology for uploading an image with iframe
 	submitImage: function(event){
 		event.preventDefault();
 		var params = $(event.target).serializeJSON();
 		// var params = {listing_id: this.model.id}
 		var image = new TVBnB.Models.Image({ listing_id: this.model.id });
-		debugger
 		// var values = {};
 		// var csrf_param = $('meta[name=csrf-param').attr('content');
 		// var csrf_token = $('meta[name=csrf-token').attr('content');
@@ -38,12 +39,14 @@ TVBnB.Views.NewImagesForm = Backbone.View.extend({
 			// data: values_with_csrf
 		});
 
+		// start progress bar, listen for when finished to stop progress bar
 		this.listenTo(image, 'sync', this.render);
 		this.listenTo(image, 'sync', this.fireFinished);
 
 		this.addProgress()
 	},
 
+	// when file is selected from explorer, place file into hidden field to prep for upload
 	handleFile: function(event) {
     var input = event.target;
     var file = input.files[0]
@@ -57,6 +60,7 @@ TVBnB.Views.NewImagesForm = Backbone.View.extend({
     return reader.readAsDataURL(file)
   },
 
+  // while upload is happening, show progress bar
 	addProgress: function(){
 		this.$('.new-image-button').removeClass('visible');
 		this.$('.new-image-button').addClass('invisible');

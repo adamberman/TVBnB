@@ -10,6 +10,7 @@ TVBnB.Views.Main = Backbone.CompositeView.extend({
 
 	template: JST['index/main'],
 
+	// map subview
 	addGoogle: function(){
 		var google = new TVBnB.Views.Google({
 			collection: this.collection
@@ -17,6 +18,7 @@ TVBnB.Views.Main = Backbone.CompositeView.extend({
 		this.addSubview(".google", google);
 	},
 
+	// search subview (price, date, location search bar)
 	addSearch: function(){
 		var search = new TVBnB.Views.ListingsSearch({
 			collection: this.collection
@@ -24,6 +26,7 @@ TVBnB.Views.Main = Backbone.CompositeView.extend({
 		this.addSubview('.other', search);
 	},
 
+	// index page for all listings
 	addListIndex: function(){
 		var index = new TVBnB.Views.ListingsIndex({
 			collection: this.collection

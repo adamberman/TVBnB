@@ -22,6 +22,7 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 		"click button#search-submit": "newLocationSearch"
 	},
 
+	// upon any change to the search form (date or price), store new search params in the cookies, send updated search params to the map
 	changeForm: function(event){
 		event.preventDefault();
 		var formValues = $('form').serializeJSON();
@@ -37,6 +38,7 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 		this.collection.trigger("newParams", options);
 	},
 
+	// create calendars, set start dates and end dates so that start must come before end, and visa versa (no time travel allowed!)
 	initDatePicker: function(){
 		var that = this;
 		setTimeout(function(){
@@ -74,7 +76,7 @@ TVBnB.Views.ListingsSearch = Backbone.View.extend({
 		}, 0);
 	},
 
-	newLocationSearch: function(event){
+	// upon a new location being submitted to the search bar, begin the search process by storing the current params and sending the new location to the map
 		event.preventDefault();
 		var location = $('.listing-search-block').val();
 		var formParam = $('form').serializeJSON();

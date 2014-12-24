@@ -14,6 +14,7 @@ TVBnB.Views.ShowTitle = Backbone.View.extend({
 
 	className: "title-container-wrapper",
 
+	// easter egg transition!
 	funTransition: function(){
 		$('.user-gravatar-img-explode').effect({
 			effect: 'explode',
@@ -21,6 +22,7 @@ TVBnB.Views.ShowTitle = Backbone.View.extend({
 		}).bind(this)
 	},
 
+	// and transition back!
 	funTransitionBack: function(){
 		$('.user-gravatar-img-explode').toggle('explode');
 	},

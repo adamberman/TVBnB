@@ -11,6 +11,7 @@ TVBnB.Views.NewMain = Backbone.CompositeView.extend({
 		'click .new-listing-button': 'submitListing'
 	},
 
+	// upon clicking the submit button, serialize the data, send an ajax request creating a new listing, and navigate to the new listing
 	submitListing: function(event){
 		event.preventDefault();
 		formValues = this.$('form.new-listing-form-wrapper').serializeJSON().listing;
