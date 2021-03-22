@@ -17,5 +17,3 @@ jobs:
         publishUrl: http://localhost:3000
         publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
         publishDeployment: 35
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
